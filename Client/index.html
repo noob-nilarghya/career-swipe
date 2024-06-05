@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo-assets/logo.ico" />
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <meta name="description" content="Website for connecting talent, Empowering Futures, where Recruiters and Candidates Swipe Right to hire or get hired" />
+  <title>Career Swipe</title>
+
+  <style>
+    .loaderWrapper{
+      font-family: 'Rubik', sans-serif;
+      background-color: #f1fafa;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #preloader{
+      margin-bottom: 2rem;
+      width: fit-content;
+      font-weight: bold;
+      font-size: 30px;
+      background: radial-gradient(circle closest-side,#5ca4a7 94%,#0000) right/calc(200% - 1em) 100%;
+      animation: l24 1s infinite alternate linear;
+    }
+    #preloader::before {
+      content: "Career Swipe";
+      line-height: 1em;
+      color: #0000;
+      background: inherit;
+      background-image: radial-gradient(circle closest-side,#000 94%,#5ca4a7);
+      -webkit-background-clip:text;
+      background-clip:text;
+    }
+
+    @keyframes l24{
+      100%{background-position: left}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Pre-loader -->
+  <div class="loaderWrapper">
+    <div id="preloader"></div>
+  </div>
+  
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+
+  <script>
+    // When page loads, hide pre-loader
+    const loader = document.querySelector('.loaderWrapper');
+    loader.style.opacity = 1;
+
+    function fade() {
+      (loader.style.opacity -= .1) < 0 ? loader.style.display = "none" : setTimeout(fade, 100)
+    }
+    window.addEventListener('load', (evt) => {
+      fade();
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+{
+  "name": "career-swipe",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-spring/web": "^9.7.3",
+    "@tanstack/react-query": "^5.25.0",
+    "career-swipe": "file:..",
+    "jwt-decode": "^4.0.0",
+    "react": "^18.2.0",
+    "react-confetti-explosion": "^2.1.2",
+    "react-content-loader": "^7.0.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.0",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.22.3",
+    "react-tinder-card": "^1.6.4",
+    "socket.io-client": "^4.7.5",
+    "styled-components": "^5.3.11",
+    "zustand": "^4.5.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.1.4"
+  }
+}
