@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://career-swipe.up.railway.app/</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/register</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/login</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/about</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/home</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/feed</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/password-forgot</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/engine.io</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/edit-account</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/edit-candidate</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/password-reset</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/message-small-screen</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://career-swipe.up.railway.app/edit-recruiter</loc>
+	<lastmod>2024-06-06T18:54:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+</urlset>

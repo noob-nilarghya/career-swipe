@@ -148,13 +148,6 @@ function AccountSetup() {
         );
     }
 
-    const {loggingOut, error, refetch} = useQuery({
-        queryKey: ['user-login'],
-        queryFn: () => logoutService(),
-        enabled: false, // Initialize useQuery with enabled set to false
-        refetchOnWindowFocus: false, // Disable automatic refetch on window focus
-    });
-
     const queryClient = useQueryClient(); 
     const { isLoading: disablingAcc, mutate } = useMutation({
         mutationFn: (obj) => disableAccService(obj), 

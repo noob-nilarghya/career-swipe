@@ -39,6 +39,7 @@ app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, 'userPic')));
 
 app.use(express.static(path.join(process.cwd(), "Client", "dist")));
+app.use(express.static(path.join(process.cwd())));
 
 const PORT= process.env.PORT || 3000;
 
@@ -64,6 +65,9 @@ app.use('/api/candidate', candidateRouter);
 app.use('/api/recruiter', recruiterRouter);
 app.use('/api/message', messageRouter);
 app.use('/api/feed', feedRouter);
+app.get('/sitemap.xml', (req, res) => {
+    res.sendFile(path.join(process.cwd(), "sitemap.xml"));
+})
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(process.cwd(), "Client", "dist", "index.html"));
