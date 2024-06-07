@@ -95,6 +95,17 @@ const StyledChat= styled.div`
         filter: ${({type}) => (type === 'large' ? 'brightness(0.75)' : 'brightness(0.85)')};
     }
 `;
+const ChatTerms= styled.div`
+    height: fit-content;
+    background-color: rgb(213, 234, 235);
+    border-bottom: 3px solid rgb(164, 210, 211);
+    border-top: 3px solid rgb(164, 210, 211);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 1.5rem;
+`;
 
 const Div3Dots= styled.div`
     display: ${({ isVisible }) => (isVisible ? "flex" : "none")};
@@ -210,6 +221,12 @@ function Chat({msgUserId, setMessageOpened, msgUserName, userPhoto, type}) {
                 <ChatContent msgUserId={msgUserId} lastMessageElementRef={lastMessageElementRef} />
                 <ChatBox msgUserId={msgUserId} lastMessageElementRef={lastMessageElementRef} />
             </StyledChat>
+            {(type === large) && (
+                <ChatTerms>
+                    <span>All conversations are safe with us</span>
+                    <span>&copy; Career-Swipe, 2024 &nbsp;|&nbsp; All right reserved</span>
+                </ChatTerms>
+            )}
             <Modal isOpen={clickedForUserDetails} purpose='chatInfo'>
                 {(loadingStatus) ? 
                     <Spinner /> 
