@@ -221,7 +221,7 @@ function Chat({msgUserId, setMessageOpened, msgUserName, userPhoto, type}) {
                 <ChatContent msgUserId={msgUserId} lastMessageElementRef={lastMessageElementRef} />
                 <ChatBox msgUserId={msgUserId} lastMessageElementRef={lastMessageElementRef} />
             </StyledChat>
-            {(type === large) && (
+            {(type === 'large') && (
                 <ChatTerms>
                     <span>All conversations are safe with us</span>
                     <span>&copy; Career-Swipe, 2024 &nbsp;|&nbsp; All right reserved</span>
