@@ -197,6 +197,7 @@ const ChatTerms= styled.div`
     padding: 0.6rem 1.5rem;
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100vw;
 `;
 

@@ -130,7 +130,7 @@ const GlobalStyles = createGlobalStyle`
 
     /* For dark mode */
     /* filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity)); */
-    filter: drop-shadow(10px 10px 20px rgba(90,90,90, 0.1));
+    filter: drop-shadow(10px 10px 20px rgba(50,50,50, 0.1));
   }
 
 `;

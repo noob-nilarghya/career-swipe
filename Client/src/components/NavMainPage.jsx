@@ -37,6 +37,7 @@ const Img= styled.img`
         margin-left: 3rem;
     }
     @media (max-width: 900px) {
+        padding-top: 1rem;
         margin-left: 0;
     }
     @media (max-width: 450px) {
