@@ -66,7 +66,16 @@ const StyledMessage= styled.div`
     flex-direction: column;
     gap: 0.8rem;
     padding: 0rem 2.5rem;
-    
+    position: relative;
+    width: 100%;
+    overflow: scroll;
+
+    &::-webkit-scrollbar { 
+        display: none;
+    }
+
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
 `;
 const MessageDiv= styled.div`
     display: grid;
@@ -174,6 +183,21 @@ const NoMsgDiv= styled.div`
             width: 40rem;
         }
     }
+`;
+
+const ChatTerms= styled.div`
+    height: fit-content;
+    background-color: rgb(213, 234, 235);
+    border-bottom: 3px solid rgb(164, 210, 211);
+    border-top: 3px solid rgb(164, 210, 211);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 1.5rem;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
 `;
 
 
@@ -298,6 +322,12 @@ function Message({setMessageOpened, setMsgUserId, setMsgUserName, setUserPhoto, 
                         {(typeOfMsg === 'chat' && blockedUser.length === 0) && <><img src='/no-message.webp' alt="no msg"></img><span>No more chats found, swipe more to get matches</span></> }
                     </NoMsgDiv>
                 }
+                {(type === 'large' && messages.length !== 0) && (
+                    <ChatTerms>
+                        <span>All conversations are safe with us</span>
+                        <span>&copy; Career-Swipe, 2024 &nbsp;|&nbsp; All right reserved</span>
+                    </ChatTerms>
+                )}
             </StyledMessage>
         </Wrapper>
     );

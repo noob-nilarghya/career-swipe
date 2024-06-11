@@ -14,8 +14,10 @@ const Wrapper = styled.div`
     gap: 1rem;
     height: 5rem;
     width: 100%;
-    position: sticky;
-    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 15px;
 `;
 
 const StyledChatBox = styled.div`

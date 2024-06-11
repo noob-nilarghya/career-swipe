@@ -23,7 +23,7 @@ const StyledChatContent= styled.div`
 
     display: flex;
     width: 100%;
-    height: calc(100% - 6.5rem);
+    height: calc(100% - 7.2rem);
     flex-direction: column;
     gap: 1rem;
 `;

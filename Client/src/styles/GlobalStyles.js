@@ -129,7 +129,8 @@ const GlobalStyles = createGlobalStyle`
     max-width: 100%;
 
     /* For dark mode */
-    filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
+    /* filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity)); */
+    filter: drop-shadow(10px 10px 20px rgba(90,90,90, 0.1));
   }
 
 `;
