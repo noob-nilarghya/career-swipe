@@ -77,7 +77,7 @@ function App() {
           {/* Don't allow to access these route once user is logged in */}
           <Route path='login' element={<Login />} />
           <Route path='password-forgot' element={<ForgotPassword />} />
-          <Route path='password-reset' element={<ResetPassword />} />
+          <Route path='password-reset/:token' element={<ResetPassword />} />
           <Route path='register' element={<Register />} />
 
           {/* Protected Route  */}

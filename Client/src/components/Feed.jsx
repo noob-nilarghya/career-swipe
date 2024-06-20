@@ -163,7 +163,7 @@ function Feed({currIdx, arrUser, handleIncCount, role, setIsMatched, remark}) {
             <StyledFeed>
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "80vh"}}>
                     <ImgDiv><img src='/no-user-feed.webp' alt="No User"></img></ImgDiv>
-                    <span style={{fontSize: "1.8rem", marginTop: "1rem", marginBottom: "2rem"}}>No more user to swipe</span>
+                    <span style={{color: "#4d3bc7e3", fontWeight: "500", fontSize: "2rem", marginBottom: "2rem"}}>No more user to swipe</span>
                 </div>
             </StyledFeed>
         );

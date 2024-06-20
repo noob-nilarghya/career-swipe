@@ -5,6 +5,10 @@ import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 import Modal from "../components/Modal";
 import { useAuthContext } from "../context/AuthContext";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
+import {resetPasswordService} from '../services/apiUser';
+import toast from "react-hot-toast";
+import { useParams } from 'react-router-dom';
 
 const StyledResetPwd= styled.div`
     height: 100vh;
@@ -105,10 +109,31 @@ function ResetPassword() {
     const { errors } = formState;
     const navigate= useNavigate();
     const {authUser}= useAuthContext();
+    const [showPassword, setShowPassword] = useState(false);
+    const { token } = useParams(); // Extract the token from the URL
+
+    const queryClient = useQueryClient(); 
+    const { isLoading, mutate } = useMutation({
+        mutationFn: (userObj) => resetPasswordService(userObj), 
+        onSuccess: (data) => { // instruction to be performed on success
+            toast.success("Password Reset Successful. Redirecting to login page...");
+            
+            queryClient.invalidateQueries({
+                queryKey: ['password-forgot']
+            });
+
+            setTimeout(()=>{ 
+                navigate('/login');
+            }, 1500);
+        },
+        onError: (err) => toast.error(err.message)
+    });
 
     function myOwnSubmitFn(data) {
-        setSentLink(true);
-        console.log(data);
+        const userObj={
+            token: token, password: data.password, confirmPassword: data.confirmPassword
+        };
+        mutate(userObj);
     }
 
     function myOwnError(err) {
@@ -120,9 +145,9 @@ function ResetPassword() {
             <Header />
             <Body onSubmit={handleSubmit(myOwnSubmitFn, myOwnError)}>
                 <span style={{ color: "#4f4f4f", marginBottom: "1rem" }}>RESET YOUR PASSWORD NOW :)</span>
-                <FormRow>
+                <FormRow style={{position: "relative"}}>
                     <Input
-                        type='password'
+                        type={showPassword ? 'text' : 'password'}
                         id='password'
                         placeholder="Enter New Password"
                         {...register('password', {
@@ -133,6 +158,7 @@ function ResetPassword() {
                             }
                         })}
                     />
+                    <img src={showPassword ? '/eye-slash.svg' : '/eye.svg'} alt="show/hide password" onClick={() => setShowPassword(!showPassword)} style={{cursor: "pointer", position: "absolute", right: "1rem", top: "50%", transform: "translateY(-50%)", width: "2rem"}}></img>
                     {errors?.password?.message && <Msg>{errors.password.message}</Msg>}
                 </FormRow>
                 <FormRow>

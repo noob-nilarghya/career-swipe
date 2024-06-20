@@ -10,6 +10,7 @@ import { disableAccService, logoutService } from "../services/apiUser";
 import toast from 'react-hot-toast';
 import Modal from "../components/Modal";
 import { useRoleContext } from "../context/RoleContext";
+import { useState } from "react";
 
 
 const StyledAccountSetup= styled.div`
@@ -131,12 +132,29 @@ const Button= styled.button`
     }
 `;
 
+const Input = styled.input`
+    padding: 0 1rem;
+    margin: 2rem 0 1.5rem 0;
+    height: 3rem;
+    width: 15rem;
+    border: 1px solid #223d3e;
+    border-radius: 1rem;
+    background-color: #f3f5f7;
+
+    &::placeholder{
+        color: #727377;
+    }
+`;
+
 
 
 function AccountSetup() {
     const navigate= useNavigate();
     const {authUser, setAuthUser}= useAuthContext();
     const {roleUser, setRoleUser} = useRoleContext();
+    const [clickedDisable, setClickDisable] = useState(false);
+    const [inputValue, setInputValue] = useState('');
+
     if(!authUser){
         return (
             <Modal isOpen={true}>
@@ -199,13 +217,24 @@ function AccountSetup() {
                     </div>
                     <div>
                         <img src='/deactivateAcc.svg' alt='logout'></img>
-                        <span style={{color: "#de587c", cursor: "pointer"}} onClick={handleDisableClick}>DISABLE ACCOUNT</span>
+                        <span style={{color: "#de587c", cursor: "pointer"}} onClick={()=> setClickDisable((val)=>true)}>DISABLE ACCOUNT</span>
                     </div>
                 </Options>
                 <FormWrapper>
                     <EditUserInfo userInfo={userInfo} />
                     <EditUserPassword />
                 </FormWrapper>
+                <Modal isOpen={clickedDisable}>
+                    <img style={{marginLeft: "96%", cursor: "pointer"}} src='/close.svg' alt='close' onClick={() => setClickDisable((val)=>false)}></img>
+                    <h3>Type <b style={{color: "red"}}>"Deactivate"</b> to deactivate your account</h3>
+                    <h4 style={{color: "red", fontWeight: "500"}}>[NOTE: THIS ACTION IS IRREVERSIBLE]</h4>
+                    <Input
+                        type="text"
+                        value={inputValue} // Controlled by state
+                        onChange={(evt) => setInputValue(event.target.value)} // Update state on change
+                    />
+                    <button style={{padding: "0.1rem 0.5rem", borderRadius: "1rem", marginLeft: "1rem", color: "red"}} disabled={inputValue !== "Deactivate"} onClick={handleDisableClick}>Deactivate</button>
+            </Modal>
             </Wrapper>
         </StyledAccountSetup>
     );

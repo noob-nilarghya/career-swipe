@@ -104,6 +104,56 @@ export async function logoutService() {
     }
 }
 
+export async function forgotPasswordService({email}) {
+    
+    try {
+        const response = await fetch(`${USER_BASE_URL}/forgot-password`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            credentials: 'include', // equivalent to withCredentials: true in Axios
+            body: JSON.stringify({ email })
+        });
+        const data = await response.json();
+
+        if(data.status === 'fail'){
+            throw new Error(data.message);
+        }
+
+        return data;
+
+    } catch (err) {
+        throw new Error(err.message);
+    }
+}
+
+export async function resetPasswordService({token, password, confirmPassword}) {
+    
+    try {
+        const response = await fetch(`${USER_BASE_URL}/reset-password`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            credentials: 'include', // equivalent to withCredentials: true in Axios
+            body: JSON.stringify({ token, password, confirmPassword })
+        });
+        const data = await response.json();
+
+        if(data.status === 'fail'){
+            throw new Error(data.message);
+        }
+
+        return data;
+
+    } catch (err) {
+        throw new Error(err.message);
+    }
+}
+
 export async function disableAccService({role}){
     try{
         const response= await fetch(`${USER_BASE_URL}/deactivate-account`, {

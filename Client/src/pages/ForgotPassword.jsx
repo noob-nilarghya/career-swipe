@@ -4,7 +4,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 import Modal from "../components/Modal";
+import {forgotPasswordService} from '../services/apiUser';
+import toast from "react-hot-toast";
 
 const StyledForgotPwd= styled.div`
     height: 100vh;
@@ -115,9 +118,25 @@ function ForgotPassword() {
     const navigate= useNavigate();
     const {authUser}= useAuthContext();
 
+    const queryClient = useQueryClient(); 
+    const { isLoading, mutate } = useMutation({
+        mutationFn: (userObj) => forgotPasswordService(userObj), 
+        onSuccess: (data) => { // instruction to be performed on success
+            toast.success("Reset link sent to email successfully!");
+            setSentLink(true);
+            
+            queryClient.invalidateQueries({
+                queryKey: ['password-forgot']
+            });
+        },
+        onError: (err) => toast.error(err.message)
+    });
+
     function myOwnSubmitFn(data) {
-        setSentLink(true);
-        console.log(data);
+        const userObj={
+            email: data.email
+        };
+        mutate(userObj);
     }
 
     function myOwnError(err) {

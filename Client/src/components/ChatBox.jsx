@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     gap: 1rem;
     height: 5rem;
     width: 100%;
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     bottom: 15px;

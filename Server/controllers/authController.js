@@ -8,7 +8,8 @@ const util= require('util'); // This is inbult to node. We we use 'promisify' fn
 const crypto= require('crypto');
 const path= require('path');
 const fs = require('fs');
-// const emailLib= require('../../../email');
+const emailLib= require('../../email');
+const CLIENT_URL= process.env.CLIENT_URL;
 
 
 // {role, username, email, age, role password, confirmPassword}
@@ -45,9 +46,8 @@ exports.register= async (req, res) => {
 
 
         // configure nodemailer to send welcome mail
-        // http://127.0.0.1:3000/
-        // const url= `${req.protocol}://${req.get('host')}/menu`;
-        // await new emailLib(newUser, url).sendWelcome();
+        const url= `${CLIENT_URL}/login`;
+        await new emailLib(newUser, url).sendWelcome();
 
         res.status(201).json({
             status: "Success"
@@ -224,9 +224,9 @@ exports.forgotPassword= async (req, res) => {
 
         // Step3: Send original reset token to user's email
         try{
-            const resetURL= `${req.protocol}://${req.get('host')}/resetPassword/${resetToken}`; // https://127:0:0:1/resetPassword/{resetToken}
+            const resetURL= `${CLIENT_URL}/password-reset/${resetToken}`; // https://127:0:0:1/resetPassword/{resetToken}
 
-            // await new emailLib(user, resetURL).sendPasswordReset();
+            await new emailLib(user, resetURL).sendPasswordReset();
 
             res.status(200).json({
                 status: "Success",

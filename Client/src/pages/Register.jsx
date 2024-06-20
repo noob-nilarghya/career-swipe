@@ -6,6 +6,7 @@ import {registerService} from '../services/apiUser';
 import toast from 'react-hot-toast';
 import { useAuthContext } from "../context/AuthContext";
 import Modal from "../components/Modal";
+import { useState } from "react";
 
 const StyledLogin = styled.div`
     display: grid;
@@ -199,6 +200,7 @@ function Register() {
     const { errors } = formState;
     const navigate = useNavigate();
     const {authUser}= useAuthContext();
+    const [showPassword, setShowPassword] = useState(false);
     
     const queryClient = useQueryClient(); 
     const { isLoading: registering, mutate } = useMutation({
@@ -297,9 +299,9 @@ function Register() {
                         {errors?.email?.message && <Error>{errors.email.message}</Error>}
                     </FormRow>
 
-                    <FormRow>
+                    <FormRow style={{position: "relative"}}>
                         <Input
-                            type='password'
+                            type={showPassword ? 'text' : 'password'}
                             id='password'
                             placeholder="Password"
                             {...register('password', {
@@ -310,6 +312,7 @@ function Register() {
                                 }
                             })}
                         />
+                        <img src={showPassword ? '/eye-slash.svg' : '/eye.svg'} alt="show/hide password" onClick={() => setShowPassword(!showPassword)} style={{cursor: "pointer", position: "absolute", right: "1rem", top: "50%", transform: "translateY(-50%)", width: "2rem"}}></img>
                         {errors?.password?.message && <Error>{errors.password.message}</Error>}
                     </FormRow>
 

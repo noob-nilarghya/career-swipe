@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded( {extended: false } ));
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, 'userPic')));
 
-app.use(express.static(path.join(process.cwd(), "Client", "dist")));
+// app.use(express.static(path.join(process.cwd(), "Client", "dist")));
 app.use(express.static(path.join(process.cwd())));
 
 const PORT= process.env.PORT || 3000;
@@ -69,9 +69,9 @@ app.get('/sitemap.xml', (req, res) => {
     res.sendFile(path.join(process.cwd(), "sitemap.xml"));
 })
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(process.cwd(), "Client", "dist", "index.html"));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(process.cwd(), "Client", "dist", "index.html"));
+// });
 
 server.listen(PORT, () => {
     console.log(`[Listening on port ${PORT}]`);

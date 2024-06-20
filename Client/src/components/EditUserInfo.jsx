@@ -41,7 +41,7 @@ const UserImg = styled.div`
     }
 `;
 const LabelForFileInput = styled.label`
-    width: 200px;
+    width: 120px;
     padding: 1rem 0;
     background-color: #f3f5f7;
     color: #727377;
@@ -59,7 +59,7 @@ const LabelForFileInput = styled.label`
     }
 `;
 const ImgCam = styled.img`
-    width: 10%;
+    width: 2rem;
 `;
 const HeaderRow= styled.div`
     display: flex;
@@ -148,7 +148,8 @@ const Button = styled.button`
     width: fit-content;
     padding: 1rem 1.6rem;
     background-color: #77d4d9;
-    border: 1px solid #223d3e;
+    border: none;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
     border-radius: 1rem;
     color: #2f2f2f;
 
@@ -216,13 +217,17 @@ function EditUserInfo({userInfo}) {
             </HeaderRow>
             <UserImg>
                 <img src={`${SERVER_BASE_URL}/${userInfo.photo}`} alt='user image' onError={`this.onerror=null; this.src=${SERVER_BASE_URL}/default.jpeg;`}/>
-                <LabelForFileInput htmlFor="userPhoto"> <ImgCam src='/camera.svg' alt="camera" /> Upload Picture</LabelForFileInput>
-                <Input
-                    type="file"
-                    id="userPhoto"
-                    accept="image/*"
-                    {...register('userPhoto')}
-                />
+                <div style={{display: "flex", gap: "1rem", justifyContent: "center", alignItems: "center"}}>
+                    <LabelForFileInput htmlFor="userPhoto"> <ImgCam src='/camera.svg' alt="camera" /></LabelForFileInput>
+                    <Input
+                        type="file"
+                        id="userPhoto"
+                        accept="image/*"
+                        {...register('userPhoto')}
+                    />
+                    <Button style={{marginTop: "0"}} disabled={updatingInfo}>Upload</Button>
+                </div>
+                
             </UserImg>
             <Header style={{ fontSize: "2rem", color: "#de587c", margin: "2rem 0 1.5rem 0" }}>ACCOUNT INFORMATION</Header>
             <FormRow>

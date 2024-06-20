@@ -198,7 +198,7 @@ const ChatTerms= styled.div`
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
 `;
 
 
@@ -323,13 +323,13 @@ function Message({setMessageOpened, setMsgUserId, setMsgUserName, setUserPhoto, 
                         {(typeOfMsg === 'chat' && blockedUser.length === 0) && <><img src='/no-message.webp' alt="no msg"></img><span>No more chats found, swipe more to get matches</span></> }
                     </NoMsgDiv>
                 }
-                {(type === 'large' && messages.length !== 0) && (
-                    <ChatTerms>
-                        <span>All conversations are safe with us</span>
-                        <span>&copy; Career-Swipe, 2024 &nbsp;|&nbsp; All right reserved</span>
-                    </ChatTerms>
-                )}
             </StyledMessage>
+            {(type === 'large' && messages.length !== 0) && (
+                <ChatTerms>
+                    <span>All conversations are safe with us</span>
+                    <span>&copy; Career-Swipe, 2024 &nbsp;|&nbsp; All right reserved</span>
+                </ChatTerms>
+            )}
         </Wrapper>
     );
 }

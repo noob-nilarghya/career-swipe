@@ -15,7 +15,7 @@ const Wrapper= styled.div`
     background: #caeec2;
     width: ${(props) => (props.purpose === 'chatInfo')  ? "100%" : ""};
     margin: auto;
-    padding: 3% 2%;
+    padding: 1.5rem 3rem;
     border: 3px solid #87a6a6;
     border-radius: 1rem;
     border-radius: ${(props) => (props.purpose === 'chatInfo')  ? "0" : "1 rem"};
@@ -31,7 +31,6 @@ const Wrapper= styled.div`
 
 function Modal({ isOpen, onClose, children, purpose }) {
     if (!isOpen) return null;
-    console.log(purpose);
     return (
         <StyledModal onClick={onClose} purpose={purpose}>
             <Wrapper purpose={purpose}>

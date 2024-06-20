@@ -22,6 +22,7 @@ Career-Swipe is packed with robust, modern features designed to enhance your exp
 
 - **Responsive Design:** Our application is fully responsive, ensuring a smooth experience on any screen size.
 - **Easy Registration & Login:** Users can register, log in, and log out (protected routes) effortlessly. Rest assured, your password is securely encrypted.
+- **Reset Password:** In case user forget password, he/she can reset it by clicking on reset link which will be sent to their registered email.
 - **Job Management for Recruiters:** Recruiters can easily add, edit, and delete job descriptions with our intuitive CRUD (Create, Read, Update, Delete) operations.
 - **Resume Management for Candidates:** Candidates can manage their resumes just as easily, with the ability to add, edit, and delete their information.
 - **User Profile Management:** Both Candidates and Recruiters can update their user information, including email, password, age, profile picture, and more.
@@ -29,8 +30,8 @@ Career-Swipe is packed with robust, modern features designed to enhance your exp
 - **Chat Organization:** The chat section is organized into two tabs:
   - **Matches:** Start a new conversation with your matches.
   - **Chats:** Continue existing conversations.
-
 - **User Blocking:** For added control, users can block each other by tapping the three dots in the chat section.
+- **Email Notifiation:** User will be notified with 'Welcome Signup email', 'Match status', 'Password Reset Link' etc on their registered email
 
 Experience the future of job searching and recruiting with Career-Swipe!
 
@@ -39,12 +40,17 @@ Experience the future of job searching and recruiting with Career-Swipe!
 Clone and download this repository
 
 Install my-project with npm
-Create a .env file, copy the content of env.txt and fill your envoironment variable
-Do the exact same thing with Client/.env as well
+Create a .env file, copy the content of .env.example and fill your envoironment variable
+Do the exact same thing with Client/.env.example as well
 
 **NOTE: CLIENT_URL and VITE_SERVER_URL should be on the same PORT**
 
+Now open terminal in root directory and give the following command:
 ```bash
+  cd Client/
+  npm install
+  cd ..
+  npm install
   npm run build
   npm run server
 ```

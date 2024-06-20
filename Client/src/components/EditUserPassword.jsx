@@ -90,7 +90,8 @@ const Button = styled.button`
     width: fit-content;
     padding: 1rem 1.6rem;
     background-color: #77d4d9;
-    border: 1px solid #223d3e;
+    border: none;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
     border-radius: 1rem;
     color: #2f2f2f;
 

@@ -2,6 +2,7 @@
 const Recruiter= require('../models/recruiterModel');
 const Candidate= require('../models/candidateModel');
 const User= require('../models/userModel');
+const emailLib= require('../../email');
 
 // {user, body(preference), params(batchSize, offsetLength)}
 exports.getFeed= async (req, res) => {
@@ -85,6 +86,10 @@ exports.rightSwipe= async (req, res) => {
 
         // Temporarily set validateBeforeSave to true
         User.schema.set('validateBeforeSave', true);
+
+        if(isItMatched){
+            await new emailLib(myAcc).sendNewMatch();
+        }
         
         res.status(200).json({
             status: 'Success',
