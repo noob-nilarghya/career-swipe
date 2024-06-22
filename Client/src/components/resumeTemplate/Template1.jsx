@@ -10,10 +10,9 @@ const Container = styled.div`
   font-family: Arial, sans-serif, Helvetica;
   margin: 0 auto;
   text-align: left;
-  width: 92vw;
-  max-width: 1250px;
-  padding: 0;
-  font-size: 1.45rem;
+  width: 100vw;
+  padding: 3rem 6rem;
+  font-size: 1.4rem;
   background-color: #fff;
 `;
 
@@ -129,7 +128,7 @@ function Template1() {
 
   return (
     <Container>
-      <Input id="printpagebutton" type="button" value="Print" onClick={printpage}></Input>
+      <Input id="printpagebutton" type="button" value="Download" onClick={printpage}></Input>
       <Header>
         <Name>{name}</Name>
         <ContactInfo>

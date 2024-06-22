@@ -10,13 +10,12 @@ const Container = styled.div`
   font-family: Arial, sans-serif, Helvetica;
   margin: 0 auto;
   text-align: left;
-  width: 92vw;
-  max-width: 1240px;
-  padding: 0;
-  font-size: 2rem;
+  width: 100vw;
+  padding: 3rem 5rem;
+  font-size: 1.4rem;
   display: grid;
   grid-template-columns: 1fr 2.5fr;
-  column-gap: 20px;
+  column-gap: 15px;
   background-color: #fff;
 `;
 
@@ -48,16 +47,16 @@ const ContactInfo = styled.div`
 `;
 
 const Section = styled.section`
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 `;
 
 const SectionTitle = styled.p`
   margin: 0;
-  font-size: 3rem;
+  font-size: 2.8rem;
 `;
 
 const Subsection = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 `;
 
 const SubTitle = styled.h3`
@@ -139,7 +138,7 @@ function Template2() {
 
     return (
         <Container>
-            <Input id="printpagebutton" type="button" value="Print" onClick={printpage}></Input>
+            <Input id="printpagebutton" type="button" value="Download" onClick={printpage}></Input>
             <NameSection>
                 <Name>{name}</Name>
                 <ContactInfo>

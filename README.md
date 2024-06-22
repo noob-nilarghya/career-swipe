@@ -25,7 +25,7 @@ Career-Swipe is packed with robust, modern features designed to enhance your exp
 - **Reset Password:** In case user forget password, he/she can reset it by clicking on reset link which will be sent to their registered email.
 - **Job Management for Recruiters:** Recruiters can easily add, edit, and delete job descriptions with our intuitive CRUD (Create, Read, Update, Delete) operations.
 - **Resume Management for Candidates:** Candidates can manage their resumes just as easily, with the ability to add, edit, and delete their information.
-- **Resume Builder for Candidates:** Candidate can build their high quality resume (in A4 size PDF format) with one click. There are 2 ATS friendly popular template availabe (single column and double column). The PDF will be selectable or searchable as well.
+- **Resume Builder for Candidates:** Candidate can auto-build their high quality resume (in A4 size PDF format). There are 2 ATS friendly popular template availabe (single column and double column). The PDF will be selectable or searchable as well. Resume can be previewed and downloaded in just one click
 - **User Profile Management:** Both Candidates and Recruiters can update their user information, including email, password, age, profile picture, and more.
 - **Integrated Chat:** Once matched, Recruiters and Candidates can communicate seamlessly through our built-in chat feature to discuss further details.
 - **Chat Organization:** The chat section is organized into two tabs:
@@ -79,7 +79,7 @@ Profile:
 
 Resume (of Candidate):
 
-![Resume](https://i.postimg.cc/c1Rz8fCW/resume.png)
+![Resume](https://i.ibb.co/6tY4QLV/resume.jpg)
 
 Resume Builder & Template (of Candidate)
 
@@ -91,7 +91,7 @@ Job Description (of Recruiter):
 
 Feed:
 
-![Feed](https://i.ibb.co/x24tsbL/feed-user.png)
+![Feed](https://i.ibb.co/7gcVgQh/feed-user.jpg)
 
 Feed (with no user):
 
