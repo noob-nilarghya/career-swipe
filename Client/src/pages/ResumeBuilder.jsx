@@ -140,7 +140,7 @@ function ResumeBuilder() {
 
     useEffect(() => {
         const timer= setTimeout(() => {
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth'});
         }, 500);
 
         return () => {
