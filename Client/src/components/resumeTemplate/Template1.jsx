@@ -11,7 +11,7 @@ const Container = styled.div`
   margin: 0 auto;
   text-align: left;
   width: 100vw;
-  padding: 3rem 6rem;
+  padding: 3rem 5rem;
   font-size: 1.4rem;
   background-color: #fff;
 `;
