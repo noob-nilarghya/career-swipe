@@ -42,7 +42,7 @@ const MessageHeader= styled.div`
     align-items: center;
     column-gap: 2rem;
     padding: 1rem 2.5rem;
-    position: sticky;
+    position: absolute;
     top: 0;
     justify-content: ${(props)=> (props.clicked3Dots === true) ? 'space-between' : ''};
 

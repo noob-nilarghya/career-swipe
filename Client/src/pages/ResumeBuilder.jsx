@@ -170,7 +170,7 @@ function ResumeBuilder() {
         setTimeout(() => {
             window.print();
             setTemplate(null); // Hide Template1 after printing
-        }, 500); // Adjust delay as needed (e.g., 300ms)
+        }, 1000); // Adjust delay as needed (e.g., 300ms)
     }
 
     return (

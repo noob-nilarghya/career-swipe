@@ -36,7 +36,7 @@ const StyledFooter= styled.div`
         border-radius: 2rem;
         animation: ${fadeInOut} 3s infinite;
 
-        display: none; /* Hide it initially, sharam a rha tha :( */
+        display: none; /* Hide it initially, himmat nhi hua, sharam a rha tha :( */
     }
 
     @media (max-width: 1250px){

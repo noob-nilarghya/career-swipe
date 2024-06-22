@@ -69,7 +69,7 @@
     loader.style.opacity = 1;
 
     function fade() {
-      if ((loader.style.opacity -= .1) < 0) {
+      if ((loader.style.opacity -= .1) < -0.8) {
         loader.style.display = "none";
       } else {
         setTimeout(fade, 100);
