@@ -208,7 +208,7 @@ function CandidateSetup() {
         return (
             <Modal isOpen={true}>
                 <>
-                    <h2>User logged out, Please login again</h2>
+                    <h3>User logged out, Please login again</h3>
                     <ModalButton style={{margin: "0 auto", marginTop: "2rem", color: "black"}} onClick={()=>navigate('/login')}>Login</ModalButton>
                 </>
             </Modal>
@@ -382,7 +382,7 @@ function CandidateSetup() {
                 <SectionHeading>About/Bio: </SectionHeading>
                 <div>
                     <SectionData>
-                        <p>{bio}</p>
+                        <p style={{ marginLeft: "1rem" }}>{bio}</p>
                         <EditTrash handleEditClick={handleBioForm} section='bio'/>
                     </SectionData>
                     
@@ -482,6 +482,10 @@ function CandidateSetup() {
                     {profileForm && <ProfileForm handleProfileForm={handleProfileForm} purpose="add" />}
                 </div>
             </Grid2Col>
+
+            <Hr></Hr>
+
+            <button style={{padding: "0.5rem 1rem", border: "none", borderRadius: "0.5rem", display: "flex", margin: "1rem auto", background: "#de587c", color: "#fafafa", boxShadow: "0px 10px 15px -3px rgba(0,0,0,0.1)"}} onClick={()=> navigate('/resume-builder')}>Genreate Resume</button>
         </StyledCandidate>
     );
 }

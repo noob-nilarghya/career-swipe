@@ -12,7 +12,7 @@ module.exports= class Email{
     }
 
     newTransport(){
-        if(process.env.NODE_ENV === 'production'){
+        // if(process.env.NODE_ENV === 'production'){
             const transporter= nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
@@ -22,19 +22,19 @@ module.exports= class Email{
             });
 
             return transporter;
-        }
-        else{
-            const transporter= nodemailer.createTransport({
-                host: process.env.MAILTRAP_HOST,
-                port: process.env.MAILTRAP_PORT,
-                auth: {
-                    user: process.env.MAILTRAP_USER,
-                    pass: process.env.MAILTRAP_PWD
-                }
-            });
+        // }
+        // else{
+        //     const transporter= nodemailer.createTransport({
+        //         host: process.env.MAILTRAP_HOST,
+        //         port: process.env.MAILTRAP_PORT,
+        //         auth: {
+        //             user: process.env.MAILTRAP_USER,
+        //             pass: process.env.MAILTRAP_PWD
+        //         }
+        //     });
 
-            return transporter;
-        }
+        //     return transporter;
+        // }
         
     }
 

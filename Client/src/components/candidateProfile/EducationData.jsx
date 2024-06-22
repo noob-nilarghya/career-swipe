@@ -31,7 +31,7 @@ function EducationData({education, index, type}) {
     return (
         <>
             <Ul>
-                <li key={index}>
+                <li key={index} style={{ marginLeft: "2rem" }}>
                     <div>
                         <HeadingSpan>{education.name}</HeadingSpan> <span style={{ marginRight: "1rem" }}>{education.degree}</span> <span>[{education.from}-{education.to}]</span> <br></br>
                         <span style={{ marginRight: "1rem" }}>{education.major}</span> &bull; <span>CGPA: {education.cgpa}</span>

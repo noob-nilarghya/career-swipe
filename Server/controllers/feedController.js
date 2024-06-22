@@ -89,6 +89,7 @@ exports.rightSwipe= async (req, res) => {
 
         if(isItMatched){
             await new emailLib(myAcc).sendNewMatch();
+            await new emailLib(currentUserAcc).sendNewMatch();
         }
         
         res.status(200).json({

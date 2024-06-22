@@ -13,6 +13,8 @@ const Wrapper = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
 
+    text-align: left;
+
     @media (max-width: 1200px) {
         margin-right: 1.5rem;
         border-radius: 1rem 1rem 0 0;

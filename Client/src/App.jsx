@@ -1,5 +1,6 @@
 
 import About from './pages/About';
+import './App.css'
 import AppLayout from './pages/AppLayout';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
@@ -20,6 +21,8 @@ import { jwtDecode } from "jwt-decode";
 import { useEffect } from 'react';
 import { useRoleContext } from './context/RoleContext';
 import MessageSmallScreen from './pages/MessageSmallScreen';
+import ResumeBuilder from './pages/ResumeBuilder';
+import PayHere from './pages/PayHere';
 
 // creating react-query instance
 const queryClient = new QueryClient({
@@ -86,7 +89,9 @@ function App() {
           <Route path='edit-candidate' element={<CandidateSetup />} />
           <Route path='edit-recruiter' element={<RecruiterSetup />} />
           <Route path='edit-account' element={<AccountSetup />} />
+          <Route path='resume-builder' element={<ResumeBuilder />} />
 
+          <Route path='pay-here' element={<PayHere />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

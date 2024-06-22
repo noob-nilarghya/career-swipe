@@ -1,0 +1,21 @@
+/* Print styles */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact; /* Chrome, Safari */
+    color-adjust: exact; /* Firefox */
+  }
+
+  .resume-container {
+    width: 210mm; /*A4 width */
+    height: 297mm; /*A4 height */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    page-break-after: always;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+}

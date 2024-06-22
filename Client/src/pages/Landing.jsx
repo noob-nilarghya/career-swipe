@@ -1,12 +1,32 @@
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import GettingStarted from "../components/GettingStarted";
 import About from "./About";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const slideIn = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
+
 
 const StyledLanding= styled.div`
     display: grid;
     grid-template-columns: 1.5fr 2fr;
     padding: 6rem 10rem 5rem 10rem;
+    animation: ${fadeIn} 1.3s ease-in-out;
 
     @media (max-width: 1250px){
         padding: 6rem 8rem 5rem 8rem;
@@ -28,6 +48,8 @@ const LandingText= styled.div`
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    animation: ${fadeIn} 1.8s ease-in-out;
+
     @media (max-width: 1200px){
         width: 90%;
     }
@@ -73,6 +95,7 @@ const DivImg=styled.div`
     align-items: center;
     justify-self: end;
     width: 100%;
+    animation: ${slideIn} 1.8s ease-in-out;
 `;
 const Img= styled.img`
     width: 100%;

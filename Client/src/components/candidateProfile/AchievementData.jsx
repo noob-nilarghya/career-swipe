@@ -25,7 +25,7 @@ function AchievementData({achievement, index, type}) {
     return (
         <>
             <Ul>
-                <li key={index} style={{ marginBottom: "0.5rem" }}>{achievement.description}</li>
+                <li key={index} style={{ marginBottom: "0.5rem", marginLeft: "2rem" }}>{achievement.description}</li>
             </Ul>
             {(type!=='feedPage') ? <EditTrash section="achievement" type="achievement" id={achievement._id} handleEditClick={handleEditAchievement}/> : <></> }
             {(editAchievement && type!=='feedPage') &&

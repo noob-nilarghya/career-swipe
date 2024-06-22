@@ -29,7 +29,7 @@ const LoginForm = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     font-weight: 500;
     position: relative;
 `;
@@ -57,7 +57,7 @@ const Img = styled.img`
 `;
 const Logo = styled.img`
     width: 16rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     cursor: pointer;
 `;
 const Form= styled.form`
@@ -162,7 +162,6 @@ const GoBackImg= styled.img`
     width: 3.5rem;
     position: absolute;
     top: 0;
-    left: 0;
     cursor: pointer;
     transition: transform 0.3s;
 
@@ -215,7 +214,8 @@ function Login() {
     return (
         <StyledLogin>
             <LoginForm>
-                <GoBackImg src='/goBack.svg' onClick={()=>navigate(-1)} alt="back" />
+                <GoBackImg style={{left: "0"}} src='/goBack.svg' onClick={()=>navigate(-1)} alt="back" />
+                <GoBackImg style={{right: "2rem", width: "3.7rem"}} src='/home.svg' onClick={()=>navigate('/')} alt="home" />
                 <Logo src='/logo-assets/logo-text.webp' onClick={()=> navigate('/')} alt="logo" />
                 <span style={{ color: "#838689" }}>Login using your e-mail and password</span>
 
@@ -262,12 +262,12 @@ function Login() {
                 </div>
             </LoginForm>
             <DivImg>
-                <Img src='/page-asset/girl-hr-with-bg.svg' alt="girl facing laptop" />
+                <Img src='/page-asset/girl-hr-with-bg.webp' alt="girl facing laptop" />
             </DivImg>
             {authUser && 
                 <Modal isOpen={true}>
                     <>
-                        <h2>{authUser.user.username.split(' ')[0]} is currently logged in</h2>
+                        <h3>{authUser.user.username.split(' ')[0]} is currently logged in</h3>
                         <h4>Please log out before accessing this page</h4>
                         <Button style={{margin: "0 auto", marginTop: "2rem"}} onClick={()=>navigate('/feed')}>Go to feed</Button>
                     </>

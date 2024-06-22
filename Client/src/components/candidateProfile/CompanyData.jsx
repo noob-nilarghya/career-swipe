@@ -32,7 +32,7 @@ function CompanyData({company, type, index}) {
     return (
         <>
             <Ul>
-                <li key={index}>
+                <li key={index} style={{ marginLeft: "2rem" }}>
                     <div>
                         <HeadingSpan>{company.name}</HeadingSpan> <span>[{company.from}-{(company.to === 2099) ? `Present` : company.to}]</span> <br></br>
                         <span>Role &bull; {company.role} </span> <br></br>

@@ -171,7 +171,7 @@ function ForgotPassword() {
             {authUser && 
                 <Modal isOpen={true}>
                     <>
-                        <h2>{authUser.user.username.split(' ')[0]} is currently logged in</h2>
+                        <h3>{authUser.user.username.split(' ')[0]} is currently logged in</h3>
                         <h4>Please log out before accessing this page</h4>
                         <Button style={{margin: "0 auto", marginTop: "2rem"}} onClick={()=>navigate(-1)}>Go back</Button>
                     </>

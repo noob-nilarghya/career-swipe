@@ -12,6 +12,7 @@ const StyledModal= styled.div`
     justify-content: ${(props) => (props.purpose === 'chatInfo')  ? "" : "centre"};
 `;
 const Wrapper= styled.div`
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     background: #caeec2;
     width: ${(props) => (props.purpose === 'chatInfo')  ? "100%" : ""};
     margin: auto;
@@ -25,7 +26,6 @@ const Wrapper= styled.div`
     &>h1,h2{
         color: #00501d;
     }
-
 `;
 
 

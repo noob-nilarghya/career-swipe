@@ -83,9 +83,14 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+
   input, button, textarea, select {
     font: inherit;
     color: inherit;
+  }
+
+  select{
+    border-radius: 0.5rem;
   }
 
   a, button {

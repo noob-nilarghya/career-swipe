@@ -36,7 +36,7 @@ function ProfileData({profile, index, type}) {
     return (
         <>
             <Ul>
-                <li key={index}>
+                <li key={index} style={{ marginLeft: "1rem" }}>
                     <div>
                         <HeadingSpan>{profile.name}</HeadingSpan> <A style={{ color: "blue" }} type={type} href={profile.link} target="_blank"><img src='/link.svg' alt='link' /></A>
                     </div>

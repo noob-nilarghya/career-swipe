@@ -25,6 +25,7 @@ Career-Swipe is packed with robust, modern features designed to enhance your exp
 - **Reset Password:** In case user forget password, he/she can reset it by clicking on reset link which will be sent to their registered email.
 - **Job Management for Recruiters:** Recruiters can easily add, edit, and delete job descriptions with our intuitive CRUD (Create, Read, Update, Delete) operations.
 - **Resume Management for Candidates:** Candidates can manage their resumes just as easily, with the ability to add, edit, and delete their information.
+- **Resume Builder for Candidates:** Candidate can build their high quality resume (in A4 size PDF format) with one click. There are 2 ATS friendly popular template availabe (single column and double column). The PDF will be selectable or searchable as well.
 - **User Profile Management:** Both Candidates and Recruiters can update their user information, including email, password, age, profile picture, and more.
 - **Integrated Chat:** Once matched, Recruiters and Candidates can communicate seamlessly through our built-in chat feature to discuss further details.
 - **Chat Organization:** The chat section is organized into two tabs:
@@ -39,7 +40,6 @@ Experience the future of job searching and recruiting with Career-Swipe!
 ## Installation
 Clone and download this repository
 
-Install my-project with npm
 Create a .env file, copy the content of .env.example and fill your envoironment variable
 Do the exact same thing with Client/.env.example as well
 
@@ -60,7 +60,7 @@ Open the URL to access the website 🎉
     
 ## Tech Stack
 
-**Frontend:** React, Redux, Zustand, react-query, Styled-Components, Vite
+**Frontend:** React, Redux, Zustand, react-query, Styled-Components, Vite, EJS
 
 **Backend:** Node.js, Express.js, MongoDB, Socket.io, Multer, Sharp
 
@@ -80,6 +80,10 @@ Profile:
 Resume (of Candidate):
 
 ![Resume](https://i.postimg.cc/c1Rz8fCW/resume.png)
+
+Resume Builder & Template (of Candidate)
+
+![resume.png](https://i.postimg.cc/yYz8cWHX/resume.png)
 
 Job Description (of Recruiter):
 

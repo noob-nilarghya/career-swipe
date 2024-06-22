@@ -35,7 +35,7 @@ function ProjectData({project, index, type}) {
     return (
         <>
             <Ul>
-                <li key={index}>
+                <li key={index} style={{ marginLeft: "2rem" }}>
                     <div>
                         <HeadingSpan>{project.name}</HeadingSpan> <A style={{ color: "blue" }} type={type} href={project.link} target="_blank"><img src='/link.svg' alt='link' /></A> <br></br>
                         <p>{project.description}</p>

@@ -228,7 +228,7 @@ function RecruiterSetup() {
         return (
             <Modal isOpen={true}>
                 <>
-                    <h2>User logged out, Please login again</h2>
+                    <h3>User logged out, Please login again</h3>
                     <ModalButton style={{ margin: "0 auto", marginTop: "2rem", color: "black" }} onClick={() => navigate('/login')}>Login</ModalButton>
                 </>
             </Modal>
@@ -379,7 +379,7 @@ function RecruiterSetup() {
                 <SectionHeading>About/Bio: </SectionHeading>
                 <div>
                     <SectionData>
-                        <p>{bio}</p>
+                        <p style={{ marginLeft: "1rem" }}>{bio}</p>
                         <EditTrash>
                             <img src='/edit.svg' alt="edit" onClick={handleBioForm} />
                         </EditTrash>

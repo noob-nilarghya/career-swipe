@@ -52,7 +52,7 @@ const Img= styled.img`
 function About() {
     return (
         <StyledAbout>
-            <Img src='/page-asset/main-with-bg.svg' alt="man facing computer"></Img>
+            <Img src='/page-asset/main-with-bg.webp' alt="man facing computer"></Img>
             <AboutText>
                 <div>
                     Tired of swiping through hundreds of generic resumes or job postings that never quite hit the mark? We get it. The traditional job search is broken. That's why we created <Bold>CareerSwipe</Bold>, the matchmaking app for careers.

@@ -1,0 +1,4 @@
+
+export const language = ["python", "c", "c++", "java", "c#", "javascript", "sql", "plsql", "ase", "php", "r", "go", "matlab", "swift", "pascal", "ruby", "perl", "objective-c", "rust", "kotlin", "fortran", "cobol", "dart", "scala", "pl/sql", "bash", "haskell", "bash", "scripting", "azure", "google cloud", "cloud", "automation"];
+
+export const framework = ["react", "angular", "vue.js", "svelte", "bootstrap", "node.js", "django", "flask", "spring", "spring boot", "ruby on rails", "react native", "postgresql", "mongodb", "sqlite", "docker", "kubernetes", "ansible", "terraform", "amazon web services", "microsoft azure", "google cloud platform", "jest", "junit", "selenium", "graphql", "elasticsearch", "aws", "socket", "mern", "mean", "pug", "ejs", "restful api", "rest-api", "rest", "api", ".net", "pandas", "tensorflow", "pytorch", "scikit-learn", "natural language processing", "nlp", "deep learning", "ai", "ml"];

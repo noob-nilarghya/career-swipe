@@ -50,7 +50,7 @@ const Button = styled.button`
     height: 3.5rem;
     border: none;
     &>img{
-        background-color: #d9eced;
+        background-color: rgb(212 231 232);
     }
 `;
 const DownArrow= styled.div`

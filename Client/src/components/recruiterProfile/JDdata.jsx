@@ -546,7 +546,7 @@ function JDdata() {
                     <SectionHeading>Apply Link: </SectionHeading>
                     <div>
                         <SectionData>
-                            <span>{roleUser.jobDescription.applyLink}</span>
+                            <a href={roleUser.jobDescription.applyLink} target="_blank">{roleUser.jobDescription.applyLink}</a>
                             <EditTrash>
                                 <img src='/edit.svg' alt="edit" onClick={handleApplyLinkForm} />
                             </EditTrash>

@@ -154,7 +154,7 @@ function MainPage() {
         return (
             <Modal isOpen={true}>
                 <>
-                    <h2>User logged out, Please login again</h2>
+                    <h3>User logged out, Please login again</h3>
                     <Button style={{margin: "0 auto", marginTop: "2rem", color: "black"}} onClick={()=>navigate('/login')}>Login</Button>
                 </>
             </Modal>
@@ -236,7 +236,7 @@ function MainPage() {
                         <Eye> <Pupil /> </Eye>
                         <Smile />
                     </Eyes>
-                    <h1 style={{marginTop: "7rem"}}> yeaah </h1>
+                    <h2 style={{marginTop: "7rem"}}> yeaah </h2>
                     <ConfettiExplosion width={2000} height={1500} particleCount={150} duration={5000} />
                     <h3>&#127881; It's a match! &#128512;</h3>
                 </>

@@ -159,7 +159,7 @@ function AccountSetup() {
         return (
             <Modal isOpen={true}>
                 <>
-                    <h2>User logged out, Please login again</h2>
+                    <h3>User logged out, Please login again</h3>
                     <Button style={{margin: "0 auto", marginTop: "2rem", color: "black"}} onClick={()=>navigate('/login')}>Login</Button>
                 </>
             </Modal>
@@ -231,7 +231,7 @@ function AccountSetup() {
                     <Input
                         type="text"
                         value={inputValue} // Controlled by state
-                        onChange={(evt) => setInputValue(event.target.value)} // Update state on change
+                        onChange={(evt) => setInputValue(evt.target.value)} // Update state on change
                     />
                     <button style={{padding: "0.1rem 0.5rem", borderRadius: "1rem", marginLeft: "1rem", color: "red"}} disabled={inputValue !== "Deactivate"} onClick={handleDisableClick}>Deactivate</button>
             </Modal>

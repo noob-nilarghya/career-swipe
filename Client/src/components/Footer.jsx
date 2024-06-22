@@ -1,5 +1,17 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
+
+const fadeInOut = keyframes`
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+`;
 
 const StyledFooter= styled.div`
     background-color: #d5eaeb;
@@ -9,6 +21,23 @@ const StyledFooter= styled.div`
     justify-content: space-around;
     justify-items: center;
     align-items: center;
+
+    &>span{
+        grid-column: 1/-1;
+        text-align: center;
+        margin-top: 2rem;
+        color: #de587c;
+        padding: 0.2rem 1.2rem;
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 2rem;
+        animation: ${fadeInOut} 3s infinite;
+
+        display: none; /* Hide it initially, sharam a rha tha :( */
+    }
 
     @media (max-width: 1250px){
         padding: 4rem 8rem;
@@ -98,6 +127,7 @@ function Footer() {
                 </div>
                 <div><a style={{display: "flex", gap: "1rem", color: "#e16989", fontWeight: "500", justifyContent: "center"}} href="mailto:roynilarghya@gmail.com?subject=MealMate%20||%20Query:%20"><img style={{width: "3rem"}} src='/socials-assets/email.svg' alt="emial" /> Contact Us</a></div>
             </LastCol>
+            <span>Help us keep this website live by making a small contribution <a style={{textDecoration: "underline"}} href='/pay-here' alt='pay-here'>here</a>. Thank you for your support!</span>
         </StyledFooter>
     );
 }

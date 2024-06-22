@@ -4,6 +4,8 @@ import TinderCard from 'react-tinder-card';
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { rightSwipeService, leftSwipeService } from "../services/apiFeed";
 import toast from 'react-hot-toast';
+import { NavLink } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 
 const StyledFeed = styled.div`
 
@@ -158,12 +160,19 @@ const ImgDiv= styled.div`
 `;
 
 function Feed({currIdx, arrUser, handleIncCount, role, setIsMatched, remark}) {
+    const {authUser}= useAuthContext();
+
     if(remark === 'No User'){
         return (
             <StyledFeed>
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "80vh"}}>
                     <ImgDiv><img src='/no-user-feed.webp' alt="No User"></img></ImgDiv>
-                    <span style={{color: "#4d3bc7e3", fontWeight: "500", fontSize: "2rem", marginBottom: "2rem"}}>No more user to swipe</span>
+                    <span style={{color: "#4d3bc7e3", fontWeight: "500", fontSize: "2rem"}}>No more user to swipe</span>
+                    <div style={{display:"flex", alignItems: "center"}}>
+                    <span>Edit preference&nbsp;</span>
+                    <NavLink to={(authUser.user.role === 'candidate') ? `/edit-candidate` : `/edit-recruiter`} style={{color: "#4d3bc7e3", textDecoration: "underline", fontWeight: "500"}}>HERE</NavLink>
+                    <span>&nbsp;to get more users</span>
+                    </div>
                 </div>
             </StyledFeed>
         );
