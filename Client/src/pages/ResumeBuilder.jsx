@@ -2,9 +2,6 @@ import { useAuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Modal from '../components/Modal';
 import styled from "styled-components";
-import { useState } from "react";
-import Template1 from '../components/resumeTemplate/Template1'
-import Template2 from '../components/resumeTemplate/Template2'
 import { useEffect } from "react";
 
 const ButtonCustom= styled.button`
@@ -50,7 +47,7 @@ const CardWrapper= styled.div`
         gap: 3rem
     }
 
-    @media (max-width: 550px){
+    @media (max-width: 750px){
         flex-direction: column;
     }
 `;
@@ -124,13 +121,6 @@ const SpanDiv= styled.div`
     }
 `;
 
-const TemplateWrapper= styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-`;
-
 const GoBackImg= styled.img`
     width: 3.5rem;
     position: absolute;
@@ -147,12 +137,21 @@ function ResumeBuilder() {
     
     const navigate= useNavigate();
     const {authUser} = useAuthContext();
-    const [template, setTemplate] = useState(null);
-    const fileName= (authUser) ? authUser.user.username.split(' ').join('_')+"_Resume" : "No_User";
 
     useEffect(() => {
-        document.title = fileName; // Set your desired title here
+        const timer= setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 500);
+
+        return () => {
+            clearTimeout(timer);
+        }
     }, []); // Empty dependency array ensures this effect runs only once
+
+    const handleClick= (url) => {
+        const baseUrl = window.location.origin; // Get the base URL of your application
+        window.open(`${baseUrl}${url}`, '_blank'); // Open the URL in a new tab
+    }
 
     if(!authUser){
         return (
@@ -165,45 +164,30 @@ function ResumeBuilder() {
         );
     }
 
-    const handleDownload= (tNo) => {
-        setTemplate(tNo);
-        setTimeout(() => {
-            window.print();
-            setTemplate(null); // Hide Template1 after printing
-        }, 1000); // Adjust delay as needed (e.g., 300ms)
-    }
-
     return (
-        <>
-            {!template &&
-                <Wrapper>
-                    <GoBackImg style={{left: "3rem"}} src='/goBack.svg' onClick={()=>navigate(-1)} alt="back" />
-                    <GoBackImg style={{right: "3rem", width: "3.7rem"}} src='/home.svg' onClick={()=>navigate('/')} alt="home" />
-                    <span style={{color: "#de587c", textAlign: "center", padding: "0 1rem"}}>Click on any of the below template to download resume</span>
-                    <CardWrapper>
-                        <Card onClick={() => handleDownload(1)}>
-                            <CardImgDiv><img src='/template1.webp' alt='template1'></img></CardImgDiv>
-                            <SpanDiv>
-                                <span>Single Column Resume</span>
-                                <span>Suitable for freshers</span>
-                                <span>Prefer single page resume</span>
-                            </SpanDiv>
-                        </Card>
-                        <Card onClick={() => handleDownload(2)}>
-                            <CardImgDiv><img src='/template2.webp' alt='template2'></img></CardImgDiv>
-                            <SpanDiv>
-                                <span>Double Column Resume</span>
-                                <span>Suitable for experienced</span>
-                                <span>Prefer single page resume</span>
-                            </SpanDiv>
-                        </Card>
-                    </CardWrapper>
-                </Wrapper>
-            }
-            {(template===1) && <TemplateWrapper><Template1 email={authUser.user.email} name={authUser.user.username}/></TemplateWrapper>}
-            {(template===2) && <TemplateWrapper><Template2 email={authUser.user.email} name={authUser.user.username}/></TemplateWrapper>}
-        </>
-        
+        <Wrapper>
+            <GoBackImg style={{left: "3rem"}} src='/goBack.svg' onClick={()=>navigate(-1)} alt="back" />
+            <GoBackImg style={{right: "3rem", width: "3.7rem"}} src='/home.svg' onClick={()=>navigate('/')} alt="home" />
+            <span style={{color: "#de587c", textAlign: "center", padding: "0 1rem"}}>Click on any of the below template to download resume</span>
+            <CardWrapper>
+                <Card onClick={() => handleClick('/template1')}>
+                    <CardImgDiv><img src='/template1.webp' alt='template1'></img></CardImgDiv>
+                    <SpanDiv>
+                        <span>Single Column Resume</span>
+                        <span>Suitable for freshers</span>
+                        <span>Prefer single page resume</span>
+                    </SpanDiv>
+                </Card>
+                <Card onClick={() => handleClick('/template2')}>
+                    <CardImgDiv><img src='/template2.webp' alt='template2'></img></CardImgDiv>
+                    <SpanDiv>
+                        <span>Double Column Resume</span>
+                        <span>Suitable for experienced</span>
+                        <span>Prefer single page resume</span>
+                    </SpanDiv>
+                </Card>
+            </CardWrapper>
+        </Wrapper>
     );
 }
 

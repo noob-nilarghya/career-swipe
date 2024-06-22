@@ -18,4 +18,8 @@
     size: A4 portrait;
     margin: 12mm;
   }
+
+  #printpagebutton {
+    display: none;
+  }
 }

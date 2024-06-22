@@ -1,17 +1,20 @@
 // 1 column resume
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import { useRoleContext } from "../../context/RoleContext";
 import { language, framework } from './skillsArray';
+import { useAuthContext } from '../../context/AuthContext';
 
 const Container = styled.div`
   font-family: Arial, sans-serif, Helvetica;
   margin: 0 auto;
   text-align: left;
+  width: 92vw;
   max-width: 1250px;
   padding: 0;
   font-size: 1.45rem;
+  background-color: #fff;
 `;
 
 const Header = styled.div`
@@ -78,9 +81,29 @@ const SkillItem = styled.li`
   margin: 1px 0;
 `;
 
-function Template1({email, name}) {
+const Input= styled.input`
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 0.3rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: #de587c;
+  color: #fafafa; 
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  cursor: pointer;
+`;
+
+function Template1() {
   const {roleUser} = useRoleContext();
+  const {authUser} = useAuthContext();
+  const email=authUser.user.email; const name=authUser.user.username;
+  const fileName= (authUser) ? authUser.user.username.split(' ').join('_')+"_Resume" : "No_User";
   const {educations, pastCompanies: experience, projects, skills, achievements, profileLinks} = roleUser;
+
+  useEffect(() => {
+    document.title = fileName; // Set your desired title here
+  }, []); // Empty dependency array ensures this effect runs only once
 
   let languageResume=""; let frameworkResume=""; let others="";
   for(let i=0; i<skills.length; i++){
@@ -97,8 +120,16 @@ function Template1({email, name}) {
   const githubLink= profileLinks.filter((profileLink) => profileLink.name.toLowerCase() === "github")[0]?.link;
   const otherLink= profileLinks.filter((profileLink) => (["github", "linkedin"].includes(profileLink.name.toLowerCase()) === false))[0]?.link;
 
+  function printpage() {
+      var printButton = document.getElementById("printpagebutton");
+      printButton.style.visibility = 'hidden';
+      window.print();
+      printButton.style.visibility = 'visible';
+  }
+
   return (
     <Container>
+      <Input id="printpagebutton" type="button" value="Print" onClick={printpage}></Input>
       <Header>
         <Name>{name}</Name>
         <ContactInfo>

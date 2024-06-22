@@ -23,6 +23,8 @@ import { useRoleContext } from './context/RoleContext';
 import MessageSmallScreen from './pages/MessageSmallScreen';
 import ResumeBuilder from './pages/ResumeBuilder';
 import PayHere from './pages/PayHere';
+import Template1 from './components/resumeTemplate/Template1';
+import Template2 from './components/resumeTemplate/Template2';
 
 // creating react-query instance
 const queryClient = new QueryClient({
@@ -90,6 +92,8 @@ function App() {
           <Route path='edit-recruiter' element={<RecruiterSetup />} />
           <Route path='edit-account' element={<AccountSetup />} />
           <Route path='resume-builder' element={<ResumeBuilder />} />
+          <Route path='template1' element={<Template1 />} />
+          <Route path='template2' element={<Template2 />} />
 
           <Route path='pay-here' element={<PayHere />} />
           <Route path='*' element={<PageNotFound />} />
