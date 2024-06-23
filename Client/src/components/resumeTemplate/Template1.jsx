@@ -115,7 +115,7 @@ function Template1() {
   if(others!==""){ others=others.slice(0, -2); }
   const onlyOne = [languageResume, frameworkResume, others].filter(n => n === "").length === 2; // true only if any 2 of them is empty
 
-  const linkedinLink= profileLinks.filter((profileLink) => profileLink.name.toLowerCase() === "linkedin")[0].link;
+  const linkedinLink= profileLinks.filter((profileLink) => profileLink.name.toLowerCase() === "linkedin")[0]?.link;
   const githubLink= profileLinks.filter((profileLink) => profileLink.name.toLowerCase() === "github")[0]?.link;
   const otherLink= profileLinks.filter((profileLink) => (["github", "linkedin"].includes(profileLink.name.toLowerCase()) === false))[0]?.link;
 
@@ -139,81 +139,91 @@ function Template1() {
         </ContactInfo>
       </Header>
 
-      <Section>
-        <SectionTitle>Education</SectionTitle>
-        {educations.map((education, index) => (
-          <Item key={index}>
-            <SubHeading style={{ fontWeight: "bold" }}>
-              <span>{education.name}</span>
-              <span>{education.from} -- {education.to}</span>
-            </SubHeading>
-            <div>{education.degree} | {education.major} | CGPA: {education.cgpa}</div>
-          </Item>
-        ))}
-      </Section>
-
-      <Section>
-        <SectionTitle>Experience</SectionTitle>
-        {experience.map((company, index) => (
-          <Item key={index}>
-            <SubHeading>
-              <div style={{display: "flex"}}>
-                <span style={{ fontWeight: "bold" }}>{company.name} | &nbsp;</span>
-                <div>{company.role}</div>
-              </div>
-              <span style={{ fontWeight: "bold" }}>{company.from} -- {(company.to === 2099) ? "Present" : company.to}</span>
-            </SubHeading>
-
-            <ProjectList>
-              {company.description.split('.').map((desc, idx)=> (
-                  <ProjectItem key={idx}>{desc}.</ProjectItem>
-              ))}
-            </ProjectList>
-          </Item>
-        ))}
-      </Section>
-
-      <Section>
-        <SectionTitle>Projects</SectionTitle>
-        {projects.map((project, index) => (
-          <Item key={index}>
-            <SubHeading style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ fontWeight: "bold" }}>{project.name}</span>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <a href={project.link} target='_blank'>LINK <img style={{ width: "18px" }} src='/link-resume.svg' alt='link'></img></a>
-              </div>
-            </SubHeading>
-
-            <ProjectList>
-              {project.description.split('.').map((desc, idx)=> (
-                <ProjectItem key={idx}>{desc}.</ProjectItem>
-              ))}
-            </ProjectList>
-          </Item>
-        ))}
-      </Section>
-
-      <Section>
-        <SectionTitle>Technical Skills</SectionTitle>
-        {onlyOne ? (
-            languageResume+" "+frameworkResume+" "+others
-        ): (
-          <SkillsList>
-            {languageResume && <SkillItem><strong>Languages:</strong> {languageResume}</SkillItem>}
-            {frameworkResume && <SkillItem><strong>Technologies/Frameworks:</strong> {frameworkResume}</SkillItem>}
-            {others && <SkillItem><strong>Others:</strong> {others}</SkillItem>}
-          </SkillsList>
-        )}
-      </Section>
-
-      <Section>
-        <SectionTitle>Achievements</SectionTitle>
-        <ProjectList style={{ paddingLeft: "15px" }}>
-          {achievements.map((achievement, index) => (
-            <ProjectItem key={index}>{achievement.description}</ProjectItem>
+      {educations.length!==0 &&
+        <Section>
+          <SectionTitle>Education</SectionTitle>
+          {educations.map((education, index) => (
+            <Item key={index}>
+              <SubHeading style={{ fontWeight: "bold" }}>
+                <span>{education.name}</span>
+                <span>{education.from} -- {education.to}</span>
+              </SubHeading>
+              <div>{education.degree} | {education.major} | CGPA: {education.cgpa}</div>
+            </Item>
           ))}
-        </ProjectList>
-      </Section>
+        </Section>
+      }
+
+      {experience.length!==0 && 
+        <Section>
+          <SectionTitle>Experience</SectionTitle>
+          {experience.map((company, index) => (
+            <Item key={index}>
+              <SubHeading>
+                <div style={{display: "flex"}}>
+                  <span style={{ fontWeight: "bold" }}>{company.name} | &nbsp;</span>
+                  <div>{company.role}</div>
+                </div>
+                <span style={{ fontWeight: "bold" }}>{company.from} -- {(company.to === 2099) ? "Present" : company.to}</span>
+              </SubHeading>
+
+              <ProjectList>
+                {company.description.split('.').map((desc, idx)=> (
+                    <ProjectItem key={idx}>{desc}.</ProjectItem>
+                ))}
+              </ProjectList>
+            </Item>
+          ))}
+        </Section>
+      }
+
+      {projects.length!==0 &&
+        <Section>
+          <SectionTitle>Projects</SectionTitle>
+          {projects.map((project, index) => (
+            <Item key={index}>
+              <SubHeading style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span style={{ fontWeight: "bold" }}>{project.name}</span>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <a href={project.link} target='_blank'>LINK <img style={{ width: "18px" }} src='/link-resume.svg' alt='link'></img></a>
+                </div>
+              </SubHeading>
+
+              <ProjectList>
+                {project.description.split('.').map((desc, idx)=> (
+                  <ProjectItem key={idx}>{desc}.</ProjectItem>
+                ))}
+              </ProjectList>
+            </Item>
+          ))}
+        </Section>
+      }
+
+      {skills.length!==0 && 
+        <Section>
+          <SectionTitle>Technical Skills</SectionTitle>
+          {onlyOne ? (
+              languageResume+" "+frameworkResume+" "+others
+          ): (
+            <SkillsList>
+              {languageResume && <SkillItem><strong>Languages:</strong> {languageResume}</SkillItem>}
+              {frameworkResume && <SkillItem><strong>Technologies/Frameworks:</strong> {frameworkResume}</SkillItem>}
+              {others && <SkillItem><strong>Others:</strong> {others}</SkillItem>}
+            </SkillsList>
+          )}
+        </Section>
+      }
+
+      {achievements.length!==0 &&
+        <Section>
+          <SectionTitle>Achievements</SectionTitle>
+          <ProjectList style={{ paddingLeft: "15px" }}>
+            {achievements.map((achievement, index) => (
+              <ProjectItem key={index}>{achievement.description}</ProjectItem>
+            ))}
+          </ProjectList>
+        </Section>
+      }
     </Container>
   );
 }

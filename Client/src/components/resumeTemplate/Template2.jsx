@@ -125,7 +125,7 @@ function Template2() {
     if(others!==""){ others=others.slice(0, -2); }
     const onlyOne = [languageResume, frameworkResume, others].filter(n => n === "").length === 2; // true only if any 2 of them is empty
 
-    const linkedinLink = profileLinks.filter((profileLink) => profileLink.name.toLowerCase() === "linkedin")[0].link;
+    const linkedinLink = profileLinks.filter((profileLink) => profileLink.name.toLowerCase() === "linkedin")[0]?.link;
     const githubLink = profileLinks.filter((profileLink) => profileLink.name.toLowerCase() === "github")[0]?.link;
     const otherLink = profileLinks.filter((profileLink) => (["github", "linkedin"].includes(profileLink.name.toLowerCase()) === false))[0]?.link;
 
@@ -150,87 +150,99 @@ function Template2() {
             </NameSection>
 
             <div>
-                <Section>
-                    <SectionTitle>Education</SectionTitle>
-                    {educations.map((education, index) => (
-                        <Subsection key={index}>
-                            <SubTitle>{education.name}</SubTitle>
-                            <Description>{education.degree} in {education.major}</Description>
-                            <Location>Cum. GPA: {education.cgpa} | {education.from}-{education.to}</Location>
-                        </Subsection>
-                    ))}
-                </Section>
-
-                <Section>
-                    <SectionTitle>Profile Links</SectionTitle>
-                    <List style={{ listStyle: "none", padding: "0" }}>
-                        {profileLinks.map((profileLink, index) => (
-                            <ListItem key={index}><b>{profileLink.name}: </b><a style={{ color: "#000" }} href={profileLink.link} target='_blank'>//link</a></ListItem>
+                {educations.length!==0 &&
+                    <Section>
+                        <SectionTitle>Education</SectionTitle>
+                        {educations.map((education, index) => (
+                            <Subsection key={index}>
+                                <SubTitle>{education.name}</SubTitle>
+                                <Description>{education.degree} in {education.major}</Description>
+                                <Location>Cum. GPA: {education.cgpa} | {education.from}-{education.to}</Location>
+                            </Subsection>
                         ))}
-                    </List>
-                </Section>
+                    </Section>
+                }
 
-                <Section>
-                    <SectionTitle>Skills</SectionTitle>
-                    <Subsection>
-                        {onlyOne ? (
-                            languageResume+" "+frameworkResume+" "+others
-                        ): (
-                            <>
-                            {languageResume && <Description><span style={{ fontWeight: "bold" }}>Languages: </span> <span>{languageResume}</span></Description>}
-                            {frameworkResume && <Description><span style={{ fontWeight: "bold" }}>Frameworks & Library: </span> <span>{frameworkResume}</span></Description>}
-                            {others && <Description><span style={{ fontWeight: "bold" }}>Familiar: </span> <span>{others}</span></Description>}
-                            </>
-                        )}
-                    </Subsection>
-                </Section>
+                {profileLinks.length!==0 && 
+                    <Section>
+                        <SectionTitle>Profile Links</SectionTitle>
+                        <List style={{ listStyle: "none", padding: "0" }}>
+                            {profileLinks.map((profileLink, index) => (
+                                <ListItem key={index}><b>{profileLink.name}: </b><a style={{ color: "#000" }} href={profileLink.link} target='_blank'>//link</a></ListItem>
+                            ))}
+                        </List>
+                    </Section>
+                }
+
+                {skills.length!==0 && 
+                    <Section>
+                        <SectionTitle>Skills</SectionTitle>
+                        <Subsection>
+                            {onlyOne ? (
+                                languageResume+" "+frameworkResume+" "+others
+                            ): (
+                                <>
+                                {languageResume && <Description><span style={{ fontWeight: "bold" }}>Languages: </span> <span>{languageResume}</span></Description>}
+                                {frameworkResume && <Description><span style={{ fontWeight: "bold" }}>Frameworks & Library: </span> <span>{frameworkResume}</span></Description>}
+                                {others && <Description><span style={{ fontWeight: "bold" }}>Familiar: </span> <span>{others}</span></Description>}
+                                </>
+                            )}
+                        </Subsection>
+                    </Section>
+                }
 
             </div>
 
             <div>
-                <Section>
-                    <SectionTitle>Experience</SectionTitle>
-                    {experience.map((company, index) => (
-                        <Subsection key={index}>
-                            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                                <SubTitle>{company.name} &nbsp;| </SubTitle>
-                                <Description>{company.role}</Description>
-                            </div>
-                            <Location>{company.from} - {(company.to === 2099) ? "Present" : company.to}</Location>
-                            <List>
-                                {company.description.split('.').map((desc, idx)=> (
-                                    <ListItem key={idx}>{desc}.</ListItem>
-                                ))}
-                            </List>
-                        </Subsection>
-                    ))}
-                </Section>
-
-                <Section>
-                    <SectionTitle>Projects</SectionTitle>
-                    {projects.map((project, index) => (
-                        <Subsection key={index}>
-                            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                                <SubTitle>{project.name} &nbsp;| </SubTitle>
-                                <Description><a style={{ color: "#000" }} href={project.link} target="_blank">Deploy Link </a></Description>
-                            </div>
-                            <List>
-                                {project.description.split('.').map((desc, idx)=> (
-                                    <ListItem key={idx}>{desc}.</ListItem>
-                                ))}
-                            </List>
-                        </Subsection>
-                    ))}
-                </Section>
-
-                <Section>
-                    <SectionTitle>Achievements</SectionTitle>
-                    <List>
-                        {achievements.map((achievement, index) => (
-                            <ListItem key={index}>{achievement.description}.</ListItem>
+                {experience.length!==0 && 
+                    <Section>
+                        <SectionTitle>Experience</SectionTitle>
+                        {experience.map((company, index) => (
+                            <Subsection key={index}>
+                                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                    <SubTitle>{company.name} &nbsp;| </SubTitle>
+                                    <Description>{company.role}</Description>
+                                </div>
+                                <Location>{company.from} - {(company.to === 2099) ? "Present" : company.to}</Location>
+                                <List>
+                                    {company.description.split('.').map((desc, idx)=> (
+                                        <ListItem key={idx}>{desc}.</ListItem>
+                                    ))}
+                                </List>
+                            </Subsection>
                         ))}
-                    </List>
-                </Section>
+                    </Section>
+                }
+
+                {projects.length!==0 &&
+                    <Section>
+                        <SectionTitle>Projects</SectionTitle>
+                        {projects.map((project, index) => (
+                            <Subsection key={index}>
+                                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                    <SubTitle>{project.name} &nbsp;| </SubTitle>
+                                    <Description><a style={{ color: "#000" }} href={project.link} target="_blank">Deploy Link </a></Description>
+                                </div>
+                                <List>
+                                    {project.description.split('.').map((desc, idx)=> (
+                                        <ListItem key={idx}>{desc}.</ListItem>
+                                    ))}
+                                </List>
+                            </Subsection>
+                        ))}
+                    </Section>
+                }
+
+                {achievements.length!==0 &&
+                    <Section>
+                        <SectionTitle>Achievements</SectionTitle>
+                        <List>
+                            {achievements.map((achievement, index) => (
+                                <ListItem key={index}>{achievement.description}.</ListItem>
+                            ))}
+                        </List>
+                    </Section>
+                }
             </div>
         </Container>
     );
