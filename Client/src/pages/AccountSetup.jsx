@@ -148,6 +148,15 @@ const Input = styled.input`
     }
 `;
 
+const Deactivate= styled.div`
+    display: none;
+    @media (max-width: 1000px) {
+        display: flex;
+        justify-content: center;
+        margin-top: 5rem;
+    }
+`;
+
 
 
 function AccountSetup() {
@@ -218,13 +227,16 @@ function AccountSetup() {
                         <Link to='/about'>ABOUT US</Link>
                     </div>
                     <div>
-                        <img src='/deactivateAcc.svg' alt='logout'></img>
+                        <img src='/deactivateAcc.svg' alt='deactivate'></img>
                         <span style={{color: "#de587c", cursor: "pointer"}} onClick={()=> setClickDisable((val)=>true)}>DISABLE ACCOUNT</span>
                     </div>
                 </Options>
                 <FormWrapper>
                     <EditUserInfo userInfo={userInfo} />
                     <EditUserPassword />
+                    <Deactivate onClick={()=> setClickDisable((val)=>true)}>
+                        <span style={{color: "#de587c", cursor: "pointer", display: "inline-block", border: "1px solid #de587c", padding: "0.5rem 1rem", borderRadius: "1rem"}}>DISABLE ACCOUNT</span>
+                    </Deactivate>
                 </FormWrapper>
                 <Modal isOpen={clickedDisable}>
                     <img style={{marginLeft: "96%", cursor: "pointer"}} src='/close.svg' alt='close' onClick={() => setClickDisable((val)=>false)}></img>
