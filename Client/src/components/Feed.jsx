@@ -168,7 +168,7 @@ function Feed({currIdx, arrUser, handleIncCount, role, setIsMatched, remark}) {
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "80vh"}}>
                     <ImgDiv><img src='/no-user-feed.webp' alt="No User"></img></ImgDiv>
                     <span style={{color: "#4d3bc7e3", fontWeight: "500", fontSize: "2rem"}}>No more user to swipe</span>
-                    <div style={{display:"flex", alignItems: "center"}}>
+                    <div style={{display:"flex", alignItems: "center", paddingBottom: "18rem"}}>
                     <span>Edit preference&nbsp;</span>
                     <NavLink to={(authUser.user.role === 'candidate') ? `/edit-candidate` : `/edit-recruiter`} style={{color: "#4d3bc7e3", textDecoration: "underline", fontWeight: "500"}}>HERE</NavLink>
                     <span>&nbsp;to get more users</span>
