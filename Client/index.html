@@ -71,6 +71,7 @@
     function fade() {
       if ((loader.style.opacity -= .1) < -0.8) {
         loader.style.display = "none";
+        const event = new Event('loaderHidden');
       } else {
         setTimeout(fade, 100);
       }

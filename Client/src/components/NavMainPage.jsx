@@ -18,6 +18,8 @@ const StyledNav= styled.nav`
     background-color: ${(props)=>(props.type==='feed') ? "#f1fafa" : "#fff"};
     position: sticky;
     top: 0;
+    backdrop-filter: blur(0.5px);
+    -webkit-backdrop-filter: blur(0.5px);
 
     @media (max-width: 900px) {
         flex-direction: column;

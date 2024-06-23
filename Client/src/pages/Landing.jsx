@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import GettingStarted from "../components/GettingStarted";
 import About from "./About";
+import { useEffect, useState } from "react";
 
 const fadeIn = keyframes`
   from {
@@ -17,7 +18,7 @@ const StyledLanding= styled.div`
     display: grid;
     grid-template-columns: 1.5fr 2fr;
     padding: 6rem 10rem 5rem 10rem;
-    animation: ${fadeIn} 1.3s ease-in-out;
+    animation: ${props => props.isLoaderHidden ? 'none' : css`${fadeIn} 1.3s ease-in-out`};
 
     @media (max-width: 1250px){
         padding: 6rem 8rem 5rem 8rem;
@@ -85,7 +86,7 @@ const DivImg=styled.div`
     align-items: center;
     justify-self: end;
     width: 100%;
-    animation: ${fadeIn} 1.8s ease-in-out;
+    animation: ${props => props.isLoaderHidden ? 'none' : css`${fadeIn} 1.3s ease-in-out`};
 `;
 const Img= styled.img`
     width: 100%;
@@ -124,21 +125,55 @@ const A= styled.a`
 function Landing() {
 
     const navigate= useNavigate();
+    const [isLoaderHidden, setIsLoaderHidden] = useState(false);
+
+    useEffect(() => {
+        const handleLoaderHidden = () => {
+            setIsLoaderHidden(true);
+        };
+
+        // Add event listener for the custom 'loaderHidden' event
+        window.addEventListener('loaderHidden', handleLoaderHidden);
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener('loaderHidden', handleLoaderHidden);
+        };
+    }, []);
+
+    const svgMarkup = `
+        <svg width="100%" height="100%" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" overflow="auto" shape-rendering="auto" fill="#f1fafa">
+        <defs>
+        <path id="wavepath" d="M 0 2000 0 500 Q 97 363 194 500 t 194 0 194 0 194 0 194 0 194 0 194 0 194 0  v1000 z" />
+   <path id="motionpath" d="M -388 0 0 0" /> 
+        </defs>
+        <g >
+        <use xlink:href="#wavepath" y="30" fill="#d5eaeb">
+        <animateMotion
+            dur="5s"
+            repeatCount="indefinite">
+            <mpath xlink:href="#motionpath" />
+        </animateMotion>
+        </use>
+        </g>
+        </svg>
+    `;
 
     return (
         <>
-        <StyledLanding>
+        <StyledLanding isLoaderHidden={isLoaderHidden}>
             <LandingText>
                 <H1>Bridging Skills to Match Right Opportunities</H1>
                 <P>Connecting Talent, Empowering Futures: Where Candidates and Recruiters Swipe Right for Success</P>
                 <GettingStarted page="landing"/>
                 <A onClick={()=> navigate('/about')}>Learn More</A> 
             </LandingText>
-            <DivImg>
+            <DivImg isLoaderHidden={isLoaderHidden}>
                 <Img src='/page-asset/about-with-bg.svg' alt='persons facing laptop' />
             </DivImg>
         </StyledLanding>
         <About />
+        <div style={{height: "10rem"}} dangerouslySetInnerHTML={{ __html: svgMarkup }} />
         </>
     );
 }

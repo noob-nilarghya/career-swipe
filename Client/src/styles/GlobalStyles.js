@@ -34,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
+    scroll-behavior: smooth;
     font-size: 62.5%;
 
     @media (max-width: 800px){

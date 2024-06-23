@@ -20,7 +20,7 @@ const StyledFooter= styled.div`
     grid-template-columns: 1.5fr 2fr 2fr;
     justify-content: space-around;
     justify-items: center;
-    align-items: center;
+    align-items: center; 
 
     &>span{
         grid-column: 1/-1;
@@ -40,24 +40,24 @@ const StyledFooter= styled.div`
     }
 
     @media (max-width: 1250px){
-        padding: 4rem 8rem;
+        padding: 0 8rem 4rem 8rem;
     }
     @media (max-width: 900px){
-        padding: 4rem 6rem;
+        padding: 0 6rem 4rem 6rem;
     }
     @media (max-width: 800px){
         grid-template-columns: 1fr 1fr 1fr;
-        padding: 4rem;
+        padding: 0 4rem 4rem 4rem;
     }
     @media (max-width: 650px){
         grid-template-columns: 2fr 1.5fr 1.5fr;
     }
     @media (max-width: 550px){
-        padding: 3rem 5rem;
+        padding: 0 5rem 3rem 5rem;
         grid-template-columns: 1fr 1fr;
     }
     @media (max-width: 430px){
-        padding: 3rem;
+        padding: 0 3rem 3rem 3rem;
     }
     @media (max-width: 400px){
         grid-template-columns: 1.5fr 1fr;

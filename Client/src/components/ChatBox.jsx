@@ -14,9 +14,9 @@ const Wrapper = styled.div`
     gap: 1rem;
     height: 5rem;
     width: 100%;
-    position: absolute;
+    position: sticky;
     left: 0;
-    right: 0;
+    z-index: 9999;
     bottom: 15px;
 `;
 

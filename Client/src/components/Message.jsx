@@ -28,9 +28,6 @@ const Wrapper= styled.div`
     flex-direction: column;
     border-radius: ${({type}) => (type==='small') ? '0 1rem 0 0' : '0'};
     background-color: #fff;
-    height: 100vh;
-    height: 100dvh;
-    min-height: -webkit-fill-available;
 
     @media (max-width: 1200px) {
         display: ${({type}) => (type === 'small') ? 'none' : 'flex'};
@@ -48,6 +45,11 @@ const MessageHeader= styled.div`
     column-gap: 2rem;
     padding: 1rem 2.5rem;
     border-radius: 0 0 1.2rem 1.2rem;
+    position: sticky;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
 
     &>span{
         font-weight: 500;
@@ -72,6 +74,7 @@ const StyledMessage= styled.div`
     position: relative;
     width: 100%;
     overflow: scroll;
+    height: 100%;
 
     &::-webkit-scrollbar { 
         display: none;
@@ -198,10 +201,8 @@ const ChatTerms= styled.div`
     justify-content: center;
     align-items: center;
     padding: 0.6rem 1.5rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    width: 100vw;
+    max-width: 80rem;
 `;
 
 

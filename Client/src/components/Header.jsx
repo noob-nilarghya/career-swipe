@@ -22,6 +22,8 @@ const StyledHeader= styled.nav`
     font-size: 1.8rem;
     position: sticky;
     top: 0;
+    backdrop-filter: blur(0.5px);
+    -webkit-backdrop-filter: blur(0.5px);
 
     @media (max-width: 900px) {
         padding: 2rem 5rem 1rem 5rem;

@@ -26,9 +26,6 @@ const Wrapper= styled.div`
     flex-direction: column;
     border-radius: ${({type}) => (type==='small') ? '0 1rem 0 0' : '1rem 1rem 0 0'};
     color: #002b36;
-    height: 100vh;
-    height: 100dvh;
-    min-height: -webkit-fill-available;
 
     @media (max-width: 1200px) {
         display: ${({type}) => (type === 'small' ? 'none' : 'flex')};
@@ -46,8 +43,10 @@ const MessageHeader= styled.div`
     column-gap: 2rem;
     padding: 1rem 2.5rem;
     position: sticky;
+    z-index: 9999;
     top: 0;
     left: 0;
+    width: 100%;
     justify-content: ${(props)=> (props.clicked3Dots === true) ? 'space-between' : ''};
 
     &>span{
