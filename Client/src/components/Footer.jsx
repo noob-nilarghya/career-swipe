@@ -35,8 +35,6 @@ const StyledFooter= styled.div`
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 2rem;
         animation: ${fadeInOut} 3s infinite;
-
-        display: none; /* Hide it initially, himmat nhi hua, sharam a rha tha :( */
     }
 
     @media (max-width: 1250px){
@@ -127,7 +125,9 @@ function Footer() {
                 </div>
                 <div><a style={{display: "flex", gap: "1rem", color: "#e16989", fontWeight: "500", justifyContent: "center"}} href="mailto:roynilarghya@gmail.com?subject=MealMate%20||%20Query:%20"><img style={{width: "3rem"}} src='/socials-assets/email.svg' alt="emial" /> Contact Us</a></div>
             </LastCol>
-            <span>Help us keep this website live by making a small contribution <a style={{textDecoration: "underline"}} href='/pay-here' alt='pay-here'>here</a>. Thank you for your support!</span>
+            <span>Made with &#128153; by <a style={{fontWeight: "500"}} href='https://nilportfolio.onrender.com' target="_blank" alt='pay-here'>NIL</a>. Thanks for supporting!</span>
+            {/* Hide it initially, himmat nhi hua, sharam a rha tha :( */}
+            <span style={{display: "none"}}>Help us keep this website live by making a small contribution <a style={{textDecoration: "underline"}} href='/pay-here' target="_blank" alt='pay-here'>here</a>. Thank you for your support!</span>
         </StyledFooter>
     );
 }
