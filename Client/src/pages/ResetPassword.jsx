@@ -12,6 +12,7 @@ import { useParams } from 'react-router-dom';
 
 const StyledResetPwd= styled.div`
     height: 100vh;
+    height: 100dvh;
     background-color: #f1fafa;
 `;
 const Msg = styled.span`

@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const StyledAppLayout= styled.div`
     max-height: 100vh;
+    max-height: 100dvh;
 `;
 
 

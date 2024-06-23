@@ -15,7 +15,9 @@ import { useState } from "react";
 
 const StyledAccountSetup= styled.div`
     height: 100vh;
+    height: 100dvh;
     max-height: 100vh;
+    max-height: 100dvh;
     display: grid;
     grid-template-rows: 8rem 1fr;
     row-gap: 3rem;

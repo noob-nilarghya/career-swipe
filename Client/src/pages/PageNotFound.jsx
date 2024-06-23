@@ -4,6 +4,7 @@ import Button from '../components/Button';
 const StyledNotFound= styled.div`
     position: relative;
     height: 100vh;
+    height: 100dvh;
 `;
 const ErrorDiv= styled.div`
     padding: 0 2rem;

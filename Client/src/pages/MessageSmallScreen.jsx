@@ -5,7 +5,9 @@ import Chat from "../components/Chat";
 
 const StyledSmallScreenMsg= styled.div`
     height: 100vh;
+    height: 100dvh;
     max-height: 100vh;
+    max-height: 100dvh;
     width: 100vw;
     max-width: 80rem;
     margin: 0 auto;

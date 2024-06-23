@@ -67,6 +67,7 @@ const GlobalStyles = createGlobalStyle`
 
     transition: color 0.3s, background-color 0.3s;
     min-height: 100vh;
+    min-height: 100dvh;
     line-height: 1.5;
     font-size: 1.6rem;
 

@@ -13,6 +13,7 @@ const StyledLogin = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100vh;
+    height: 100dvh;
     padding: 2rem;
 
     @media (max-width: 800px){

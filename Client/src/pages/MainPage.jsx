@@ -20,7 +20,9 @@ import RoleInfoLoader from "../components/skeletons/RoleInfoLoader";
 
 const StyledMainPage= styled.div`
     height: 100vh;
+    height: 100dvh;
     max-height: 100vh;
+    max-height: 100dvh;
     width: 100vw;
     max-width: 100vw;
     display: grid;

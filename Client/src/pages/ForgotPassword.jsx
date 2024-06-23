@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 
 const StyledForgotPwd= styled.div`
     height: 100vh;
+    height: 100dvh;
     background-color: #f1fafa;
 `;
 const Msg = styled.span`
