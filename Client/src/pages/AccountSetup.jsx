@@ -150,6 +150,21 @@ const Input = styled.input`
 
 const Deactivate= styled.div`
     display: none;
+    &>span{
+        color: #de587c;
+        cursor: pointer;
+        display: inline-block;
+        border: 1px solid #de587c;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        width: 60rem;
+        text-align: center;
+        box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    &>span:hover{
+        background: #de587c; 
+        color: #fafafa;
+    }
     @media (max-width: 1000px) {
         display: flex;
         justify-content: center;
@@ -235,7 +250,7 @@ function AccountSetup() {
                     <EditUserInfo userInfo={userInfo} />
                     <EditUserPassword />
                     <Deactivate onClick={()=> setClickDisable((val)=>true)}>
-                        <span style={{color: "#de587c", cursor: "pointer", display: "inline-block", border: "1px solid #de587c", padding: "0.5rem 1rem", borderRadius: "1rem"}}>DISABLE ACCOUNT</span>
+                        <span>DISABLE ACCOUNT</span>
                     </Deactivate>
                 </FormWrapper>
                 <Modal isOpen={clickedDisable}>

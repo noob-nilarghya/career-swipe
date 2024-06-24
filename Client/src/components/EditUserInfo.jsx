@@ -25,7 +25,7 @@ const Header = styled.p`
     }
 `;
 const UserImg = styled.div`
-    margin: 4rem 0;
+    margin: 4rem 0 0 0;
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -166,12 +166,20 @@ const Button = styled.button`
     }
 `;
 
+const UploadInstruction= styled.div`
+    color: #727377;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    @media (max-width: 480px) {
+        text-align: center;
+    }
+`;
+
 function EditUserInfo({userInfo}) {
     const { register, handleSubmit, reset, getValues, formState } = useForm();
     const { errors } = formState;
     const {authUser, setAuthUser}= useAuthContext();
     const SERVER_BASE_URL= import.meta.env.VITE_SERVER_URL;
-    // const [fileSelected, setFileSelected] = useState(false);
 
     const queryClient = useQueryClient(); 
     const { isLoading: updatingInfo, mutate } = useMutation({
@@ -188,14 +196,6 @@ function EditUserInfo({userInfo}) {
         },
         onError: (err) => toast.error(err.message)
     });
-
-    // const handleFileChange = (event) => {
-    //     if (event.target.files.length > 0) {
-    //         setFileSelected(true);
-    //     } else {
-    //         setFileSelected(false);
-    //     }
-    // };
 
     function myOwnSubmitFn(data) {
         const formData= new FormData();
@@ -227,8 +227,8 @@ function EditUserInfo({userInfo}) {
                     />
                     <Button style={{marginTop: "0"}} disabled={updatingInfo}>Upload</Button>
                 </div>
-                
             </UserImg>
+            <UploadInstruction>Choose a photo and hit Upload</UploadInstruction>
             <Header style={{ fontSize: "2rem", color: "#de587c", margin: "2rem 0 1.5rem 0" }}>ACCOUNT INFORMATION</Header>
             <FormRow>
                 <FormRowDiv>
