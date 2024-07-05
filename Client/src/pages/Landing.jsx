@@ -141,24 +141,6 @@ function Landing() {
         };
     }, []);
 
-    const svgMarkup = `
-        <svg width="100%" height="100%" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" overflow="auto" shape-rendering="auto" fill="#f1fafa">
-        <defs>
-        <path id="wavepath" d="M 0 2000 0 500 Q 97 363 194 500 t 194 0 194 0 194 0 194 0 194 0 194 0 194 0  v1000 z" />
-   <path id="motionpath" d="M -388 0 0 0" /> 
-        </defs>
-        <g >
-        <use xlink:href="#wavepath" y="30" fill="#d5eaeb">
-        <animateMotion
-            dur="5s"
-            repeatCount="indefinite">
-            <mpath xlink:href="#motionpath" />
-        </animateMotion>
-        </use>
-        </g>
-        </svg>
-    `;
-
     return (
         <>
         <StyledLanding isLoaderHidden={isLoaderHidden}>
@@ -173,7 +155,6 @@ function Landing() {
             </DivImg>
         </StyledLanding>
         <About />
-        <div style={{height: "10rem"}} dangerouslySetInnerHTML={{ __html: svgMarkup }} />
         </>
     );
 }

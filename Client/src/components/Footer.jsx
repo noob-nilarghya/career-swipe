@@ -15,7 +15,7 @@ const fadeInOut = keyframes`
 
 const StyledFooter= styled.div`
     background-color: #d5eaeb;
-    padding: 4rem 10rem;
+    padding: 1rem 10rem 4rem 10rem;
     display: grid;
     grid-template-columns: 1.5fr 2fr 2fr;
     justify-content: space-around;
