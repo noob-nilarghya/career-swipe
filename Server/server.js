@@ -5,6 +5,7 @@ const express= require('express');
 const { app, server } = require('./socket/socket');
 const mongoose= require('mongoose');
 const path= require('path');
+const https= require('https');
 // const __dirname= path.resolve();
 const dotenv= require('dotenv');
 dotenv.config({path: './.env'});
@@ -60,11 +61,26 @@ const recruiterRouter= require('./routes/recruiterRouter');
 const messageRouter= require('./routes/messageRouter');
 const feedRouter= require('./routes/feedRouter');
 
+app.get('/api/keep-alive', (req, res) => {
+    res.send('Pinging from server');
+});
+
 app.use('/api/user', userRouter);
 app.use('/api/candidate', candidateRouter);
 app.use('/api/recruiter', recruiterRouter);
 app.use('/api/message', messageRouter);
 app.use('/api/feed', feedRouter);
+
+function keepAlive(){
+    setInterval(() => {
+        https.get(`${process.env.SERVER_URL}/api/keep-alive`, (res) => {
+            console.log(`Server is alive: ${res.statusCode}`)
+        }).on('error', (e) => {
+            console.log(`Error pinging server: ${e.message}`);
+        });
+    }, 2000);
+}
+
 app.get('/sitemap.xml', (req, res) => {
     res.sendFile(path.join(process.cwd(), "sitemap.xml"));
 })
@@ -75,4 +91,5 @@ app.get('*', (req, res) => {
 
 server.listen(PORT, () => {
     console.log(`[Listening on port ${PORT}]`);
+    keepAlive();
 });
