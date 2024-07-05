@@ -78,7 +78,7 @@ function keepAlive(){
         }).on('error', (e) => {
             console.log(`Error pinging server: ${e.message}`);
         });
-    }, 2000);
+    }, 14*60*1000);
 }
 
 app.get('/sitemap.xml', (req, res) => {
