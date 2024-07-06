@@ -42,7 +42,6 @@ const filterObj = (obj, ...allowedFields) =>{
 exports.addFields= async (req, res) => {
     try{
         const id= req.user._id; let recruiter;
-        console.log(req.body);
 
         if(req.body.type === 'default') {
             const filterField= filterObj(req.body, 'preference', 'bio');

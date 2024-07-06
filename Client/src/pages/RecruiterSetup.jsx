@@ -212,6 +212,19 @@ const EditTrash= styled.div`
         }
     }
 `;
+const Input = styled.input`
+    padding: 0 1rem;
+    margin: 2rem 0 1.5rem 0;
+    height: 3rem;
+    width: 15rem;
+    border: 1px solid #223d3e;
+    border-radius: 1rem;
+    background-color: #f3f5f7;
+
+    &::placeholder{
+        color: #727377;
+    }
+`;
 const JD= styled.div`
     padding: 1.5rem 0rem;
     display: flex;
@@ -224,6 +237,8 @@ function RecruiterSetup() {
     const navigate = useNavigate();
     const { authUser } = useAuthContext();
     const {roleUser, setRoleUser}= useRoleContext();
+    const [clickDelete, setClickDelete] = useState(false);
+    const [inputValue, setInputValue] = useState('');
     if (!authUser) {
         return (
             <Modal isOpen={true}>
@@ -307,11 +322,8 @@ function RecruiterSetup() {
             type: "jd",
             id: roleUser.jobDescription._id,
         }
-        const confirmation = window.confirm("Are you surely want to delte this?");
-        if (confirmation) {
-            setJobDescription(null);
-            mutateDelJD(obj);
-        }
+        setJobDescription(null);
+        mutateDelJD(obj);
     }
 
 
@@ -400,9 +412,20 @@ function RecruiterSetup() {
                 {jobDescription && <JDdata />}
                 {jdForm && <JDform handleJDform={handleJDform} />}
 
-                {jobDescription && <Button onClick={handleRemoveJD} style={{color: "#de587c", border: "2px solid #de587c"}}>Remove Job Description</Button>}
+                {jobDescription && <Button onClick={()=> setClickDelete((val)=>true)} style={{color: "#de587c", border: "2px solid #de587c"}}>Remove Job Description</Button>}
                 {!jobDescription && <Button jdForm={jdForm} onClick={handleJDform}>{(!jdForm) ? "Add Job Description" : "Cancel Form"}</Button>}
             </JD>
+            <Modal isOpen={clickDelete}>
+                <img style={{marginLeft: "96%", cursor: "pointer"}} src='/close.svg' alt='close' onClick={() => setClickDelete((val)=>false)}></img>
+                <h3>Type <b style={{color: "red"}}>"Remove"</b> to remove job description</h3>
+                <h4 style={{color: "red", fontWeight: "500"}}>[NOTE: THIS ACTION IS IRREVERSIBLE]</h4>
+                <Input
+                    type="text"
+                    value={inputValue} // Controlled by state
+                    onChange={(evt) => setInputValue(evt.target.value)} // Update state on change
+                />
+                <button style={{padding: "0.1rem 0.5rem", borderRadius: "1rem", marginLeft: "1rem", color: "red"}} disabled={(inputValue !== "Remove") && (inputValue !== "Remove ")} onClick={handleRemoveJD}>Remove Job Description</button>
+            </Modal>
         </StyledRecruiter>
     );
 }

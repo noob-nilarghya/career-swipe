@@ -303,7 +303,6 @@ function Feed({currIdx, arrUser, handleIncCount, role, setIsMatched, remark}) {
                 <img src='/dislike.svg' alt='dislike' onClick={() => swipe('left')} />
                 <img src='/like.svg' alt='like' onClick={() => swipe('right')} />
             </Icons>
-            {(role === 'recruiter' && currentIndex>=0 && feedUser[currentIndex].resumeLink !=="") && <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><A href={feedUser[currentIndex].resumeLink} target="_blank">Resume Link</A></div>}
         </StyledFeed>
     );
 }

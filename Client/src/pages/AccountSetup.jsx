@@ -262,8 +262,8 @@ function AccountSetup() {
                         value={inputValue} // Controlled by state
                         onChange={(evt) => setInputValue(evt.target.value)} // Update state on change
                     />
-                    <button style={{padding: "0.1rem 0.5rem", borderRadius: "1rem", marginLeft: "1rem", color: "red"}} disabled={inputValue !== "Deactivate"} onClick={handleDisableClick}>Deactivate</button>
-            </Modal>
+                    <button style={{padding: "0.1rem 0.5rem", borderRadius: "1rem", marginLeft: "1rem", color: "red"}} disabled={(inputValue !== "Deactivate") && (inputValue !== "Deactivate ")} onClick={handleDisableClick}>Deactivate</button>
+                </Modal>
             </Wrapper>
         </StyledAccountSetup>
     );
