@@ -169,7 +169,7 @@ function Template1() {
 
               <ProjectList>
                 {company.description.split('.').map((desc, idx)=> (
-                    <ProjectItem key={idx}>{desc}.</ProjectItem>
+                    desc && <ProjectItem key={idx}>{desc}.</ProjectItem>
                 ))}
               </ProjectList>
             </Item>
@@ -191,7 +191,7 @@ function Template1() {
 
               <ProjectList>
                 {project.description.split('.').map((desc, idx)=> (
-                  <ProjectItem key={idx}>{desc}.</ProjectItem>
+                  desc && <ProjectItem key={idx}>{desc}.</ProjectItem>
                 ))}
               </ProjectList>
             </Item>

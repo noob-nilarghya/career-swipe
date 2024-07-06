@@ -206,7 +206,7 @@ function Template2() {
                                 <Location>{company.from} - {(company.to === 2099) ? "Present" : company.to}</Location>
                                 <List>
                                     {company.description.split('.').map((desc, idx)=> (
-                                        <ListItem key={idx}>{desc}.</ListItem>
+                                        desc && <ListItem key={idx}>{desc}.</ListItem>
                                     ))}
                                 </List>
                             </Subsection>
@@ -225,7 +225,7 @@ function Template2() {
                                 </div>
                                 <List>
                                     {project.description.split('.').map((desc, idx)=> (
-                                        <ListItem key={idx}>{desc}.</ListItem>
+                                        desc && <ListItem key={idx}>{desc}.</ListItem>
                                     ))}
                                 </List>
                             </Subsection>
