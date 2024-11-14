@@ -291,7 +291,7 @@ function Message({setMessageOpened, setMsgUserId, setMsgUserName, setUserPhoto, 
                     <React.Fragment key={index}>
                         <MessageDiv onClick={()=>handleClick(message._id, message.username, message.photo)}>
                             <MsgUserImg>
-                                <img src={`${SERVER_BASE_URL}/${message.photo}`} alt='userImg'></img>
+                                <img src={`${SERVER_BASE_URL}/${message.photo}`} alt='user image' onError={`this.onerror=null; this.src=${SERVER_BASE_URL}/default.jpeg;`}/>
                                 {onlineUsers.includes(message._id) && <GreenDot />}
                             </MsgUserImg>
                             <MsgUserTxt>
@@ -308,7 +308,7 @@ function Message({setMessageOpened, setMsgUserId, setMsgUserName, setUserPhoto, 
                         <React.Fragment key={index}>
                             <MessageDiv onClick={()=>handleClick(message._id, message.username, message.photo)}>
                                 <MsgUserImg isOnline={onlineUsers.includes(message._id)}>
-                                    <img src={`${SERVER_BASE_URL}/${message.photo}`} alt='userImg'></img>
+                                    <img src={`${SERVER_BASE_URL}/${message.photo}`} alt='user image' onError={`this.onerror=null; this.src=${SERVER_BASE_URL}/default.jpeg;`}/>
                                     {onlineUsers.includes(message._id) && <GreenDot />}
                                 </MsgUserImg>
                                 <MsgUserTxt>

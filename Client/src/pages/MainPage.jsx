@@ -180,7 +180,7 @@ function MainPage() {
 
             if(data.data.finalResult.length === 0){ // no more account (RESET everything)
                 setFeedUser((val) => null);
-                setCurrIdx((val) => -1);
+                setCurrIdx((val) => -69); // any dummy value which won't trigger mutate (refetch)
                 setCount((val) => 0);
             }
             else{
@@ -230,7 +230,7 @@ function MainPage() {
             {fetchingFeed && <RoleInfoLoader />}
             {(feedUser && feedUser.length > 0 && authUser.user.role === 'recruiter') && <UserCandidate roleInfo={feedUser[currIdx]} />}
             {(feedUser && feedUser.length > 0 && authUser.user.role === 'candidate') && <UserRecruiter roleInfo={feedUser[currIdx]} />}
-            {(!fetchingFeed && (!feedUser || feedUser.length === 0)) && <UserCandidate remark="No User"/>}
+            {(!fetchingFeed && (!feedUser || feedUser.length === 0 || currIdx === -69)) && <UserCandidate remark="No User"/>}
             <Modal isOpen={isMatched} onClose={handleClose}>
                 <>
                     <Eyes>
