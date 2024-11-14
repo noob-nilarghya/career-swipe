@@ -224,12 +224,12 @@ function MainPage() {
             }
 
             {fetchingFeed && <FeedLoading />}
-            {(!fetchingFeed && (feedUser && feedUser.length > 0)) && <Feed currIdx={currIdx} handleIncCount={handleIncCount} arrUser={feedUser} role={authUser.user.role} setIsMatched={setIsMatched}/>}
-            {(!fetchingFeed && (!feedUser || feedUser.length === 0)) && <Feed remark="No User"/>}
+            {(!fetchingFeed && (feedUser && feedUser.length > 0 && currIdx>=0)) && <Feed currIdx={currIdx} handleIncCount={handleIncCount} arrUser={feedUser} role={authUser.user.role} setIsMatched={setIsMatched}/>}
+            {(!fetchingFeed && (!feedUser || feedUser.length === 0 || currIdx === -69)) && <Feed remark="No User"/>}
             
             {fetchingFeed && <RoleInfoLoader />}
-            {(feedUser && feedUser.length > 0 && authUser.user.role === 'recruiter') && <UserCandidate roleInfo={feedUser[currIdx]} />}
-            {(feedUser && feedUser.length > 0 && authUser.user.role === 'candidate') && <UserRecruiter roleInfo={feedUser[currIdx]} />}
+            {(feedUser && feedUser.length > 0 && authUser.user.role === 'recruiter' && currIdx>=0) && <UserCandidate roleInfo={feedUser[currIdx]} />}
+            {(feedUser && feedUser.length > 0 && authUser.user.role === 'candidate' && currIdx>=0) && <UserRecruiter roleInfo={feedUser[currIdx]} />}
             {(!fetchingFeed && (!feedUser || feedUser.length === 0 || currIdx === -69)) && <UserCandidate remark="No User"/>}
             <Modal isOpen={isMatched} onClose={handleClose}>
                 <>
